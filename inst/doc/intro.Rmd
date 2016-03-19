@@ -1,0 +1,101 @@
+---
+title: "Introduction"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=FALSE, include=FALSE}
+library(rgho)
+```
+
+`rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/en/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+
+## The Global Health Observatory
+
+As stated by the WHO website: *The GHO data repository contains an extensive list of indicators, which can be selected by theme or through a multi-dimension query functionality. It is the World Health Organization's main health statistics repository*.
+
+## Data structure
+
+GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("dimensions", package = "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("codes-gho", package = "rgho")`).
+
+It is possible to access dimensions with `get_gho_dimensions()`:
+
+```{r}
+get_gho_dimensions()
+```
+
+And codes for a given dimension with `get_gho_codes()`:
+
+```{r}
+get_gho_codes(dimension = "COUNTRY")
+get_gho_codes(dimension = "GHO")
+```
+
+## Search
+
+The function `search_dimensions()` and `search_codes()` research a term in dimension or codes labels, respectively.
+
+```{r}
+search_dimensions("region")
+search_codes("neonatal", dimension = "GHO")
+```
+
+It is also possible to search results from an existing object.
+
+```{r}
+result <- get_gho_codes(dimension = "REGION")
+search_gho(result, "asia")
+```
+
+## Filtering results
+
+Dimension codes can be filtered according to their attributes.
+
+```{r}
+results <- get_gho_codes(dimension = "COUNTRY")
+
+filter_attrs(
+  results,
+  WHO_REGION_CODE == "EUR"
+)
+```
+
+## Data download
+
+An indicator can be downloaded as a `data_frame` with `get_gho_data()`. Here we use `MDG_0000000001`, *Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)*:
+
+```{r}
+result <- get_gho_data(
+  dimension = "GHO",
+  code = "MDG_0000000001"
+)
+
+print(result, width = Inf)
+```
+
+## Filter requests
+
+The `filter` argument in `get_gho_data()` allows request filtering:
+
+```{r}
+result <- get_gho_data(
+  dimension = "GHO",
+  code = "MDG_0000000001",
+  filter = list(
+    REGION = "EUR",
+    YEAR = "2015"
+  )
+)
+
+print(result, width = Inf)
+```
+
+## Other parameters
+
+Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
