@@ -7,10 +7,11 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-03-18" />
+<meta name="date" content="2016-06-12" />
 
 <title>Introduction</title>
 
@@ -56,6 +57,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </style>
 
 
+
 <link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
 
 </head>
@@ -64,13 +66,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<div class="fluid-row" id="header">
 
+<h1 class="title toc-ignore">Introduction</h1>
+<h4 class="date"><em>2016-06-12</em></h4>
 
-<h1 class="title">Introduction</h1>
-<h4 class="date"><em>2016-03-18</em></h4>
-
-</div>
 
 <div id="TOC">
 <ul>
@@ -94,7 +93,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;dimensions&quot;, package = &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;codes-gho&quot;, package = &quot;rgho&quot;)</code>).</p>
 <p>It is possible to access dimensions with <code>get_gho_dimensions()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_dimensions</span>()</code></pre></div>
-<pre><code>## A 'GHO' object of 112 elements.
+<pre><code>## A 'GHO' object of 114 elements.
 ## 
 ##                  Label              ID
 ## 1            Indicator             GHO
@@ -146,11 +145,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 2160 elements.
+<pre><code>## A 'GHO' object of 2186 elements.
 ## 
 ##                                                                                       Label
 ## 1 Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)
-## 2                               Adolescent fertility rate (per 1000 girls aged 15-19 years)
+## 2                                   Adolescent birth rate (per 1000 women aged 15-19 years)
 ## 3                                                              Contraceptive prevalence (%)
 ## 4                                                        Unmet need for family planning (%)
 ## 5            Under-five mortality rate (probability of dying by age 5 per 1000 live births)
@@ -225,20 +224,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</code></pre></div>
 <pre><code>## A 'GHO' object of 8 elements.
 ## 
-##                                                            Label
-## 1                                                South-East Asia
-## 2                                          East Asia and Pacific
-## 3                                        Europe and Central Asia
-## 4                                                     South Asia
-## 5 Low- and middle-income countries of the South-East Asia Region
-## 6                     South East Asia region, stratum B (SEAR B)
-##                ID
-## 1            SEAR
-## 2          WB_EAP
-## 3          WB_ECA
-## 4           WB_SA
-## 5    WHO_LMI_SEAR
-## 6 GBD_REG14_SEARB
+##                                        Label              ID
+## 1                            South-East Asia            SEAR
+## 2                      East Asia and Pacific          WB_EAP
+## 3                    Europe and Central Asia          WB_ECA
+## 4                                 South Asia           WB_SA
+## 5 South East Asia region, stratum B (SEAR B) GBD_REG14_SEARB
+## 6 South East Asia region, stratum D (SEAR D) GBD_REG14_SEARD
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
@@ -302,30 +294,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Source: local data frame [5,330 x 11]
 ## 
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
-##             (chr)        (chr) (int)  (chr)                (chr)   (chr)
-## 1  MDG_0000000001    PUBLISHED  1998    AFR               WB_UMI     AGO
-## 2  MDG_0000000001    PUBLISHED  2000    AFR               WB_UMI     AGO
-## 3  MDG_0000000001    PUBLISHED  2015    AFR               WB_UMI     AGO
-## 4  MDG_0000000001    PUBLISHED  1990    AFR                WB_LI     BDI
-## 5  MDG_0000000001    PUBLISHED  2004    AFR                WB_LI     BDI
-## 6  MDG_0000000001    PUBLISHED  2006    AFR                WB_LI     BDI
-## 7  MDG_0000000001    PUBLISHED  1995    AFR                WB_LI     BEN
-## 8  MDG_0000000001    PUBLISHED  1998    AFR                WB_LI     BEN
-## 9  MDG_0000000001    PUBLISHED  2003    AFR                WB_LI     BEN
-## 10 MDG_0000000001    PUBLISHED  2004    AFR                WB_LI     BEN
+##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
+## 1  MDG_0000000001    PUBLISHED  1991    AFR               WB_UMI     AGO
+## 2  MDG_0000000001    PUBLISHED  1999    AFR               WB_UMI     AGO
+## 3  MDG_0000000001    PUBLISHED  2005    AFR               WB_UMI     AGO
+## 4  MDG_0000000001    PUBLISHED  2006    AFR               WB_UMI     AGO
+## 5  MDG_0000000001    PUBLISHED  2007    AFR               WB_UMI     AGO
+## 6  MDG_0000000001    PUBLISHED  2008    AFR               WB_UMI     AGO
+## 7  MDG_0000000001    PUBLISHED  2013    AFR               WB_UMI     AGO
+## 8  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BDI
+## 9  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BDI
+## 10 MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BDI
 ## ..            ...          ...   ...    ...                  ...     ...
 ##          Display Value Numeric   Low  High Comments
-##                  (chr)   (dbl) (dbl) (dbl)    (chr)
-## 1  130.6 [116.9-147.3]   130.6 116.9 147.3         
-## 2  128.3 [113.9-145.8]   128.3 113.9 145.8         
-## 3    96.0 [61.6-150.1]    96.0  61.6 150.1         
-## 4   103.9 [95.2-113.8]   103.9  95.2 113.8         
-## 5     82.9 [73.3-93.5]    82.9  73.3  93.5         
-## 6     76.2 [65.6-87.9]    76.2  65.6  87.9         
-## 7    97.2 [91.7-102.8]    97.2  91.7 102.8         
-## 8     92.7 [87.4-98.6]    92.7  87.4  98.6         
-## 9     83.0 [77.5-88.8]    83.0  77.5  88.8         
-## 10    80.8 [75.0-86.8]    80.8  75.0  86.8         
+##                  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
+## 1  133.5 [120.1-150.4]   133.5 120.1 150.4         
+## 2  129.5 [115.4-146.6]   129.5 115.4 146.6         
+## 3  121.2 [101.1-145.1]   121.2 101.1 145.1         
+## 4   119.4 [97.6-144.9]   119.4  97.6 144.9         
+## 5   117.1 [93.9-145.2]   117.1  93.9 145.2         
+## 6   114.7 [89.9-145.3]   114.7  89.9 145.3         
+## 7   101.4 [68.8-149.2]   101.4  68.8 149.2         
+## 8   101.7 [92.0-113.4]   101.7  92.0 113.4         
+## 9     79.7 [69.6-90.6]    79.7  69.6  90.6         
+## 10    72.7 [61.2-85.9]    72.7  61.2  85.9         
 ## ..                 ...     ...   ...   ...      ...</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
@@ -344,30 +336,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Source: local data frame [54 x 11]
 ## 
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
-##             (chr)        (chr) (int)  (chr)                (chr)   (chr)
-## 1  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
-## 2  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     AZE
-## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DNK
-## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     ESP
-## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     HUN
-## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
-## 7  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
-## 8  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CYP
-## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CZE
-## 10 MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     GEO
+##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
+## 1  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     NLD
+## 2  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     SRB
+## 3  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     MKD
+## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CHE
+## 5  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     KAZ
+## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     FIN
+## 7  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AND
+## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ALB
+## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     PRT
+## 10 MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     MDA
 ## ..            ...          ...   ...    ...                  ...     ...
 ##       Display Value Numeric   Low  High Comments
-##               (chr)   (dbl) (dbl) (dbl)    (chr)
-## 1     2.9 [2.6-3.2]     2.9   2.6   3.2         
-## 2  27.9 [17.6-44.5]    27.9  17.6  44.5         
-## 3     2.9 [2.4-3.5]     2.9   2.4   3.5         
-## 4     3.5 [2.9-4.2]     3.5   2.9   4.2         
-## 5     5.3 [4.8-5.9]     5.3   4.8   5.9         
-## 6     4.5 [4.0-5.1]     4.5   4.0   5.1         
-## 7    9.7 [8.7-10.9]     9.7   8.7  10.9         
-## 8     2.5 [1.9-3.2]     2.5   1.9   3.2         
-## 9     2.8 [2.5-3.1]     2.8   2.5   3.1         
-## 10  10.6 [8.9-13.3]    10.6   8.9  13.3         
+##               &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
+## 1     3.2 [2.9-3.6]     3.2   2.9   3.6         
+## 2     5.9 [4.9-7.0]     5.9   4.9   7.0         
+## 3     4.8 [2.7-7.2]     4.8   2.7   7.2         
+## 4     3.4 [2.9-4.0]     3.4   2.9   4.0         
+## 5  12.6 [10.8-14.6]    12.6  10.8  14.6         
+## 6     1.9 [1.6-2.2]     1.9   1.6   2.2         
+## 7     2.1 [1.3-3.5]     2.1   1.3   3.5         
+## 8   12.5 [7.0-22.2]    12.5   7.0  22.2         
+## 9     3.0 [2.5-3.6]     3.0   2.5   3.6         
+## 10  13.6 [9.6-19.8]    13.6   9.6  19.8         
 ## ..              ...     ...   ...   ...      ...</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
