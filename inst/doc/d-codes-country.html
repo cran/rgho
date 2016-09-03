@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="date" content="2016-09-03" />
+
+<title>Codes for the COUNTRY Dimension</title>
+
+
+
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Codes for the COUNTRY Dimension</h1>
+<h4 class="date"><em>2016-09-03</em></h4>
+
+
+
+<p>Available codes for the COUNTRY dimension:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Label</th>
+<th align="left">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">AFG</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">ALB</td>
+</tr>
+<tr class="odd">
+<td align="left">Algeria</td>
+<td align="left">DZA</td>
+</tr>
+<tr class="even">
+<td align="left">American Samoa</td>
+<td align="left">ASM</td>
+</tr>
+<tr class="odd">
+<td align="left">Andorra</td>
+<td align="left">AND</td>
+</tr>
+<tr class="even">
+<td align="left">Angola</td>
+<td align="left">AGO</td>
+</tr>
+<tr class="odd">
+<td align="left">Anguilla</td>
+<td align="left">AIA</td>
+</tr>
+<tr class="even">
+<td align="left">Antigua and Barbuda</td>
+<td align="left">ATG</td>
+</tr>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">ARG</td>
+</tr>
+<tr class="even">
+<td align="left">Armenia</td>
+<td align="left">ARM</td>
+</tr>
+<tr class="odd">
+<td align="left">Aruba</td>
+<td align="left">ABW</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">AUS</td>
+</tr>
+<tr class="odd">
+<td align="left">Austria</td>
+<td align="left">AUT</td>
+</tr>
+<tr class="even">
+<td align="left">Azerbaijan</td>
+<td align="left">AZE</td>
+</tr>
+<tr class="odd">
+<td align="left">Bahamas</td>
+<td align="left">BHS</td>
+</tr>
+<tr class="even">
+<td align="left">Bahrain</td>
+<td align="left">BHR</td>
+</tr>
+<tr class="odd">
+<td align="left">Bangladesh</td>
+<td align="left">BGD</td>
+</tr>
+<tr class="even">
+<td align="left">Barbados</td>
+<td align="left">BRB</td>
+</tr>
+<tr class="odd">
+<td align="left">Belarus</td>
+<td align="left">BLR</td>
+</tr>
+<tr class="even">
+<td align="left">Belgium</td>
+<td align="left">BEL</td>
+</tr>
+<tr class="odd">
+<td align="left">Belize</td>
+<td align="left">BLZ</td>
+</tr>
+<tr class="even">
+<td align="left">Benin</td>
+<td align="left">BEN</td>
+</tr>
+<tr class="odd">
+<td align="left">Bermuda</td>
+<td align="left">BMU</td>
+</tr>
+<tr class="even">
+<td align="left">Bhutan</td>
+<td align="left">BTN</td>
+</tr>
+<tr class="odd">
+<td align="left">Bolivia (Plurinational State of)</td>
+<td align="left">BOL</td>
+</tr>
+<tr class="even">
+<td align="left">Bonaire, Saint Eustatius and Saba</td>
+<td align="left">BES</td>
+</tr>
+<tr class="odd">
+<td align="left">Bosnia and Herzegovina</td>
+<td align="left">BIH</td>
+</tr>
+<tr class="even">
+<td align="left">Botswana</td>
+<td align="left">BWA</td>
+</tr>
+<tr class="odd">
+<td align="left">Brazil</td>
+<td align="left">BRA</td>
+</tr>
+<tr class="even">
+<td align="left">British Virgin Islands</td>
+<td align="left">VGB</td>
+</tr>
+<tr class="odd">
+<td align="left">Brunei Darussalam</td>
+<td align="left">BRN</td>
+</tr>
+<tr class="even">
+<td align="left">Bulgaria</td>
+<td align="left">BGR</td>
+</tr>
+<tr class="odd">
+<td align="left">Burkina Faso</td>
+<td align="left">BFA</td>
+</tr>
+<tr class="even">
+<td align="left">Burundi</td>
+<td align="left">BDI</td>
+</tr>
+<tr class="odd">
+<td align="left">Cabo Verde</td>
+<td align="left">CPV</td>
+</tr>
+<tr class="even">
+<td align="left">Cambodia</td>
+<td align="left">KHM</td>
+</tr>
+<tr class="odd">
+<td align="left">Cameroon</td>
+<td align="left">CMR</td>
+</tr>
+<tr class="even">
+<td align="left">Canada</td>
+<td align="left">CAN</td>
+</tr>
+<tr class="odd">
+<td align="left">Cayman Islands</td>
+<td align="left">CYM</td>
+</tr>
+<tr class="even">
+<td align="left">Central African Republic</td>
+<td align="left">CAF</td>
+</tr>
+<tr class="odd">
+<td align="left">Chad</td>
+<td align="left">TCD</td>
+</tr>
+<tr class="even">
+<td align="left">Chile</td>
+<td align="left">CHL</td>
+</tr>
+<tr class="odd">
+<td align="left">China</td>
+<td align="left">CHN</td>
+</tr>
+<tr class="even">
+<td align="left">China, Hong Kong Special Administrative Region</td>
+<td align="left">HKG</td>
+</tr>
+<tr class="odd">
+<td align="left">China, Macao Special Administrative Region</td>
+<td align="left">MAC</td>
+</tr>
+<tr class="even">
+<td align="left">China: Province of Taiwan only</td>
+<td align="left">XX1</td>
+</tr>
+<tr class="odd">
+<td align="left">Colombia</td>
+<td align="left">COL</td>
+</tr>
+<tr class="even">
+<td align="left">Comoros</td>
+<td align="left">COM</td>
+</tr>
+<tr class="odd">
+<td align="left">Congo</td>
+<td align="left">COG</td>
+</tr>
+<tr class="even">
+<td align="left">Cook Islands</td>
+<td align="left">COK</td>
+</tr>
+<tr class="odd">
+<td align="left">Costa Rica</td>
+<td align="left">CRI</td>
+</tr>
+<tr class="even">
+<td align="left">Cote d’Ivoire</td>
+<td align="left">CIV</td>
+</tr>
+<tr class="odd">
+<td align="left">Croatia</td>
+<td align="left">HRV</td>
+</tr>
+<tr class="even">
+<td align="left">Cuba</td>
+<td align="left">CUB</td>
+</tr>
+<tr class="odd">
+<td align="left">Curaçao</td>
+<td align="left">CUW</td>
+</tr>
+<tr class="even">
+<td align="left">Cyprus</td>
+<td align="left">CYP</td>
+</tr>
+<tr class="odd">
+<td align="left">Czech Republic</td>
+<td align="left">CZE</td>
+</tr>
+<tr class="even">
+<td align="left">Czechoslovakia, Former</td>
+<td align="left">XX5</td>
+</tr>
+<tr class="odd">
+<td align="left">Democratic People’s Republic of Korea</td>
+<td align="left">PRK</td>
+</tr>
+<tr class="even">
+<td align="left">Democratic Republic of the Congo</td>
+<td align="left">COD</td>
+</tr>
+<tr class="odd">
+<td align="left">Denmark</td>
+<td align="left">DNK</td>
+</tr>
+<tr class="even">
+<td align="left">Djibouti</td>
+<td align="left">DJI</td>
+</tr>
+<tr class="odd">
+<td align="left">Dominica</td>
+<td align="left">DMA</td>
+</tr>
+<tr class="even">
+<td align="left">Dominican Republic</td>
+<td align="left">DOM</td>
+</tr>
+<tr class="odd">
+<td align="left">Ecuador</td>
+<td align="left">ECU</td>
+</tr>
+<tr class="even">
+<td align="left">Egypt</td>
+<td align="left">EGY</td>
+</tr>
+<tr class="odd">
+<td align="left">El Salvador</td>
+<td align="left">SLV</td>
+</tr>
+<tr class="even">
+<td align="left">Equatorial Guinea</td>
+<td align="left">GNQ</td>
+</tr>
+<tr class="odd">
+<td align="left">Eritrea</td>
+<td align="left">ERI</td>
+</tr>
+<tr class="even">
+<td align="left">Estonia</td>
+<td align="left">EST</td>
+</tr>
+<tr class="odd">
+<td align="left">Ethiopia</td>
+<td align="left">ETH</td>
+</tr>
+<tr class="even">
+<td align="left">Falkland Islands (Malvinas)</td>
+<td align="left">FLK</td>
+</tr>
+<tr class="odd">
+<td align="left">Faroe Islands</td>
+<td align="left">FRO</td>
+</tr>
+<tr class="even">
+<td align="left">Fiji</td>
+<td align="left">FJI</td>
+</tr>
+<tr class="odd">
+<td align="left">Finland</td>
+<td align="left">FIN</td>
+</tr>
+<tr class="even">
+<td align="left">France</td>
+<td align="left">FRA</td>
+</tr>
+<tr class="odd">
+<td align="left">French Guiana</td>
+<td align="left">GUF</td>
+</tr>
+<tr class="even">
+<td align="left">French Polynesia</td>
+<td align="left">PYF</td>
+</tr>
+<tr class="odd">
+<td align="left">Gabon</td>
+<td align="left">GAB</td>
+</tr>
+<tr class="even">
+<td align="left">Gambia</td>
+<td align="left">GMB</td>
+</tr>
+<tr class="odd">
+<td align="left">Georgia</td>
+<td align="left">GEO</td>
+</tr>
+<tr class="even">
+<td align="left">Germany</td>
+<td align="left">DEU</td>
+</tr>
+<tr class="odd">
+<td align="left">Germany, Former Democratic Republic</td>
+<td align="left">XX6</td>
+</tr>
+<tr class="even">
+<td align="left">Germany, Former Federal Republic</td>
+<td align="left">XX7</td>
+</tr>
+<tr class="odd">
+<td align="left">Germany, West Berlin</td>
+<td align="left">XX8</td>
+</tr>
+<tr class="even">
+<td align="left">Ghana</td>
+<td align="left">GHA</td>
+</tr>
+<tr class="odd">
+<td align="left">Gibraltar</td>
+<td align="left">GIB</td>
+</tr>
+<tr class="even">
+<td align="left">Greece</td>
+<td align="left">GRC</td>
+</tr>
+<tr class="odd">
+<td align="left">Greenland</td>
+<td align="left">GRL</td>
+</tr>
+<tr class="even">
+<td align="left">Grenada</td>
+<td align="left">GRD</td>
+</tr>
+<tr class="odd">
+<td align="left">Guadeloupe</td>
+<td align="left">GLP</td>
+</tr>
+<tr class="even">
+<td align="left">Guam</td>
+<td align="left">GUM</td>
+</tr>
+<tr class="odd">
+<td align="left">Guatemala</td>
+<td align="left">GTM</td>
+</tr>
+<tr class="even">
+<td align="left">Guinea</td>
+<td align="left">GIN</td>
+</tr>
+<tr class="odd">
+<td align="left">Guinea-Bissau</td>
+<td align="left">GNB</td>
+</tr>
+<tr class="even">
+<td align="left">Guyana</td>
+<td align="left">GUY</td>
+</tr>
+<tr class="odd">
+<td align="left">Haiti</td>
+<td align="left">HTI</td>
+</tr>
+<tr class="even">
+<td align="left">Honduras</td>
+<td align="left">HND</td>
+</tr>
+<tr class="odd">
+<td align="left">Hungary</td>
+<td align="left">HUN</td>
+</tr>
+<tr class="even">
+<td align="left">Iceland</td>
+<td align="left">ISL</td>
+</tr>
+<tr class="odd">
+<td align="left">India</td>
+<td align="left">IND</td>
+</tr>
+<tr class="even">
+<td align="left">Indonesia</td>
+<td align="left">IDN</td>
+</tr>
+<tr class="odd">
+<td align="left">Iran (Islamic Republic of)</td>
+<td align="left">IRN</td>
+</tr>
+<tr class="even">
+<td align="left">Iraq</td>
+<td align="left">IRQ</td>
+</tr>
+<tr class="odd">
+<td align="left">Ireland</td>
+<td align="left">IRL</td>
+</tr>
+<tr class="even">
+<td align="left">Israel</td>
+<td align="left">ISR</td>
+</tr>
+<tr class="odd">
+<td align="left">Italy</td>
+<td align="left">ITA</td>
+</tr>
+<tr class="even">
+<td align="left">Jamaica</td>
+<td align="left">JAM</td>
+</tr>
+<tr class="odd">
+<td align="left">Japan</td>
+<td align="left">JPN</td>
+</tr>
+<tr class="even">
+<td align="left">Jordan</td>
+<td align="left">JOR</td>
+</tr>
+<tr class="odd">
+<td align="left">Kazakhstan</td>
+<td align="left">KAZ</td>
+</tr>
+<tr class="even">
+<td align="left">Kenya</td>
+<td align="left">KEN</td>
+</tr>
+<tr class="odd">
+<td align="left">Kiribati</td>
+<td align="left">KIR</td>
+</tr>
+<tr class="even">
+<td align="left">Kuwait</td>
+<td align="left">KWT</td>
+</tr>
+<tr class="odd">
+<td align="left">Kyrgyzstan</td>
+<td align="left">KGZ</td>
+</tr>
+<tr class="even">
+<td align="left">Lao People’s Democratic Republic</td>
+<td align="left">LAO</td>
+</tr>
+<tr class="odd">
+<td align="left">Latvia</td>
+<td align="left">LVA</td>
+</tr>
+<tr class="even">
+<td align="left">Lebanon</td>
+<td align="left">LBN</td>
+</tr>
+<tr class="odd">
+<td align="left">Lesotho</td>
+<td align="left">LSO</td>
+</tr>
+<tr class="even">
+<td align="left">Liberia</td>
+<td align="left">LBR</td>
+</tr>
+<tr class="odd">
+<td align="left">Libya</td>
+<td align="left">LBY</td>
+</tr>
+<tr class="even">
+<td align="left">Liechtenstein</td>
+<td align="left">LIE</td>
+</tr>
+<tr class="odd">
+<td align="left">Lithuania</td>
+<td align="left">LTU</td>
+</tr>
+<tr class="even">
+<td align="left">Luxembourg</td>
+<td align="left">LUX</td>
+</tr>
+<tr class="odd">
+<td align="left">Madagascar</td>
+<td align="left">MDG</td>
+</tr>
+<tr class="even">
+<td align="left">Malawi</td>
+<td align="left">MWI</td>
+</tr>
+<tr class="odd">
+<td align="left">Malaysia</td>
+<td align="left">MYS</td>
+</tr>
+<tr class="even">
+<td align="left">Maldives</td>
+<td align="left">MDV</td>
+</tr>
+<tr class="odd">
+<td align="left">Mali</td>
+<td align="left">MLI</td>
+</tr>
+<tr class="even">
+<td align="left">Malta</td>
+<td align="left">MLT</td>
+</tr>
+<tr class="odd">
+<td align="left">Marshall Islands</td>
+<td align="left">MHL</td>
+</tr>
+<tr class="even">
+<td align="left">Martinique</td>
+<td align="left">MTQ</td>
+</tr>
+<tr class="odd">
+<td align="left">Mauritania</td>
+<td align="left">MRT</td>
+</tr>
+<tr class="even">
+<td align="left">Mauritius</td>
+<td align="left">MUS</td>
+</tr>
+<tr class="odd">
+<td align="left">Mayotte</td>
+<td align="left">MYT</td>
+</tr>
+<tr class="even">
+<td align="left">Mexico</td>
+<td align="left">MEX</td>
+</tr>
+<tr class="odd">
+<td align="left">Micronesia (Federated States of)</td>
+<td align="left">FSM</td>
+</tr>
+<tr class="even">
+<td align="left">Monaco</td>
+<td align="left">MCO</td>
+</tr>
+<tr class="odd">
+<td align="left">Mongolia</td>
+<td align="left">MNG</td>
+</tr>
+<tr class="even">
+<td align="left">Montenegro</td>
+<td align="left">MNE</td>
+</tr>
+<tr class="odd">
+<td align="left">Montserrat</td>
+<td align="left">MSR</td>
+</tr>
+<tr class="even">
+<td align="left">Morocco</td>
+<td align="left">MAR</td>
+</tr>
+<tr class="odd">
+<td align="left">Mozambique</td>
+<td align="left">MOZ</td>
+</tr>
+<tr class="even">
+<td align="left">Myanmar</td>
+<td align="left">MMR</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Namibia</td>
+<td align="left">NAM</td>
+</tr>
+<tr class="odd">
+<td align="left">Nauru</td>
+<td align="left">NRU</td>
+</tr>
+<tr class="even">
+<td align="left">Nepal</td>
+<td align="left">NPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Netherlands</td>
+<td align="left">NLD</td>
+</tr>
+<tr class="even">
+<td align="left">Netherlands Antilles</td>
+<td align="left">ANT</td>
+</tr>
+<tr class="odd">
+<td align="left">New Caledonia</td>
+<td align="left">NCL</td>
+</tr>
+<tr class="even">
+<td align="left">New Zealand</td>
+<td align="left">NZL</td>
+</tr>
+<tr class="odd">
+<td align="left">Nicaragua</td>
+<td align="left">NIC</td>
+</tr>
+<tr class="even">
+<td align="left">Niger</td>
+<td align="left">NER</td>
+</tr>
+<tr class="odd">
+<td align="left">Nigeria</td>
+<td align="left">NGA</td>
+</tr>
+<tr class="even">
+<td align="left">Niue</td>
+<td align="left">NIU</td>
+</tr>
+<tr class="odd">
+<td align="left">Norfolk Island</td>
+<td align="left">NFK</td>
+</tr>
+<tr class="even">
+<td align="left">Northern Mariana Islands</td>
+<td align="left">MNP</td>
+</tr>
+<tr class="odd">
+<td align="left">Norway</td>
+<td align="left">NOR</td>
+</tr>
+<tr class="even">
+<td align="left">Oman</td>
+<td align="left">OMN</td>
+</tr>
+<tr class="odd">
+<td align="left">Pakistan</td>
+<td align="left">PAK</td>
+</tr>
+<tr class="even">
+<td align="left">Palau</td>
+<td align="left">PLW</td>
+</tr>
+<tr class="odd">
+<td align="left">Panama</td>
+<td align="left">PAN</td>
+</tr>
+<tr class="even">
+<td align="left">Papua New Guinea</td>
+<td align="left">PNG</td>
+</tr>
+<tr class="odd">
+<td align="left">Paraguay</td>
+<td align="left">PRY</td>
+</tr>
+<tr class="even">
+<td align="left">Peru</td>
+<td align="left">PER</td>
+</tr>
+<tr class="odd">
+<td align="left">Philippines</td>
+<td align="left">PHL</td>
+</tr>
+<tr class="even">
+<td align="left">Pitcairn Island</td>
+<td align="left">PCN</td>
+</tr>
+<tr class="odd">
+<td align="left">Poland</td>
+<td align="left">POL</td>
+</tr>
+<tr class="even">
+<td align="left">Portugal</td>
+<td align="left">PRT</td>
+</tr>
+<tr class="odd">
+<td align="left">Puerto Rico</td>
+<td align="left">PRI</td>
+</tr>
+<tr class="even">
+<td align="left">Qatar</td>
+<td align="left">QAT</td>
+</tr>
+<tr class="odd">
+<td align="left">Republic of Korea</td>
+<td align="left">KOR</td>
+</tr>
+<tr class="even">
+<td align="left">Republic of Moldova</td>
+<td align="left">MDA</td>
+</tr>
+<tr class="odd">
+<td align="left">Rodrigues</td>
+<td align="left">XOD</td>
+</tr>
+<tr class="even">
+<td align="left">Romania</td>
+<td align="left">ROU</td>
+</tr>
+<tr class="odd">
+<td align="left">Russian Federation</td>
+<td align="left">RUS</td>
+</tr>
+<tr class="even">
+<td align="left">Rwanda</td>
+<td align="left">RWA</td>
+</tr>
+<tr class="odd">
+<td align="left">Ryu Kyu Islands</td>
+<td align="left">XX4</td>
+</tr>
+<tr class="even">
+<td align="left">Réunion</td>
+<td align="left">REU</td>
+</tr>
+<tr class="odd">
+<td align="left">Saint Helena</td>
+<td align="left">SHN</td>
+</tr>
+<tr class="even">
+<td align="left">Saint Kitts and Nevis</td>
+<td align="left">KNA</td>
+</tr>
+<tr class="odd">
+<td align="left">Saint Lucia</td>
+<td align="left">LCA</td>
+</tr>
+<tr class="even">
+<td align="left">Saint Pierre and Miquelon</td>
+<td align="left">SPM</td>
+</tr>
+<tr class="odd">
+<td align="left">Saint Vincent and the Grenadines</td>
+<td align="left">VCT</td>
+</tr>
+<tr class="even">
+<td align="left">Samoa</td>
+<td align="left">WSM</td>
+</tr>
+<tr class="odd">
+<td align="left">San Marino</td>
+<td align="left">SMR</td>
+</tr>
+<tr class="even">
+<td align="left">Sao Tome and Principe</td>
+<td align="left">STP</td>
+</tr>
+<tr class="odd">
+<td align="left">Saudi Arabia</td>
+<td align="left">SAU</td>
+</tr>
+<tr class="even">
+<td align="left">Senegal</td>
+<td align="left">SEN</td>
+</tr>
+<tr class="odd">
+<td align="left">Serbia</td>
+<td align="left">SRB</td>
+</tr>
+<tr class="even">
+<td align="left">Serbia and Montenegro, Former</td>
+<td align="left">SCG</td>
+</tr>
+<tr class="odd">
+<td align="left">Seychelles</td>
+<td align="left">SYC</td>
+</tr>
+<tr class="even">
+<td align="left">Sierra Leone</td>
+<td align="left">SLE</td>
+</tr>
+<tr class="odd">
+<td align="left">Singapore</td>
+<td align="left">SGP</td>
+</tr>
+<tr class="even">
+<td align="left">Sint Maarten (Dutch part)</td>
+<td align="left">SXM</td>
+</tr>
+<tr class="odd">
+<td align="left">Slovakia</td>
+<td align="left">SVK</td>
+</tr>
+<tr class="even">
+<td align="left">Slovenia</td>
+<td align="left">SVN</td>
+</tr>
+<tr class="odd">
+<td align="left">Solomon Islands</td>
+<td align="left">SLB</td>
+</tr>
+<tr class="even">
+<td align="left">Somalia</td>
+<td align="left">SOM</td>
+</tr>
+<tr class="odd">
+<td align="left">South Africa</td>
+<td align="left">ZAF</td>
+</tr>
+<tr class="even">
+<td align="left">South Sudan</td>
+<td align="left">SSD</td>
+</tr>
+<tr class="odd">
+<td align="left">Spain</td>
+<td align="left">ESP</td>
+</tr>
+<tr class="even">
+<td align="left">Sri Lanka</td>
+<td align="left">LKA</td>
+</tr>
+<tr class="odd">
+<td align="left">Sudan</td>
+<td align="left">SDN</td>
+</tr>
+<tr class="even">
+<td align="left">Sudan (former)</td>
+<td align="left">SDF</td>
+</tr>
+<tr class="odd">
+<td align="left">Suriname</td>
+<td align="left">SUR</td>
+</tr>
+<tr class="even">
+<td align="left">Swaziland</td>
+<td align="left">SWZ</td>
+</tr>
+<tr class="odd">
+<td align="left">Sweden</td>
+<td align="left">SWE</td>
+</tr>
+<tr class="even">
+<td align="left">Switzerland</td>
+<td align="left">CHE</td>
+</tr>
+<tr class="odd">
+<td align="left">Syrian Arab Republic</td>
+<td align="left">SYR</td>
+</tr>
+<tr class="even">
+<td align="left">Tajikistan</td>
+<td align="left">TJK</td>
+</tr>
+<tr class="odd">
+<td align="left">Thailand</td>
+<td align="left">THA</td>
+</tr>
+<tr class="even">
+<td align="left">The former Yugoslav republic of Macedonia</td>
+<td align="left">MKD</td>
+</tr>
+<tr class="odd">
+<td align="left">The former state union Serbia and Montenegro</td>
+<td align="left">ME1</td>
+</tr>
+<tr class="even">
+<td align="left">Timor-Leste</td>
+<td align="left">TLS</td>
+</tr>
+<tr class="odd">
+<td align="left">Togo</td>
+<td align="left">TGO</td>
+</tr>
+<tr class="even">
+<td align="left">Tokelau</td>
+<td align="left">TKL</td>
+</tr>
+<tr class="odd">
+<td align="left">Tonga</td>
+<td align="left">TON</td>
+</tr>
+<tr class="even">
+<td align="left">Trinidad and Tobago</td>
+<td align="left">TTO</td>
+</tr>
+<tr class="odd">
+<td align="left">Tunisia</td>
+<td align="left">TUN</td>
+</tr>
+<tr class="even">
+<td align="left">Turkey</td>
+<td align="left">TUR</td>
+</tr>
+<tr class="odd">
+<td align="left">Turkmenistan</td>
+<td align="left">TKM</td>
+</tr>
+<tr class="even">
+<td align="left">Turks and Caicos Islands</td>
+<td align="left">TCA</td>
+</tr>
+<tr class="odd">
+<td align="left">Tuvalu</td>
+<td align="left">TUV</td>
+</tr>
+<tr class="even">
+<td align="left">USSR, Former</td>
+<td align="left">XX9</td>
+</tr>
+<tr class="odd">
+<td align="left">Uganda</td>
+<td align="left">UGA</td>
+</tr>
+<tr class="even">
+<td align="left">Ukraine</td>
+<td align="left">UKR</td>
+</tr>
+<tr class="odd">
+<td align="left">United Arab Emirates</td>
+<td align="left">ARE</td>
+</tr>
+<tr class="even">
+<td align="left">United Kingdom of Great Britain and Northern Ireland</td>
+<td align="left">GBR</td>
+</tr>
+<tr class="odd">
+<td align="left">United Kingdom, England and Wales</td>
+<td align="left">X10</td>
+</tr>
+<tr class="even">
+<td align="left">United Kingdom, Northern Ireland</td>
+<td align="left">X11</td>
+</tr>
+<tr class="odd">
+<td align="left">United Kingdom, Scotland</td>
+<td align="left">X12</td>
+</tr>
+<tr class="even">
+<td align="left">United Republic of Tanzania</td>
+<td align="left">TZA</td>
+</tr>
+<tr class="odd">
+<td align="left">United States of America</td>
+<td align="left">USA</td>
+</tr>
+<tr class="even">
+<td align="left">Uruguay</td>
+<td align="left">URY</td>
+</tr>
+<tr class="odd">
+<td align="left">Uzbekistan</td>
+<td align="left">UZB</td>
+</tr>
+<tr class="even">
+<td align="left">Vanuatu</td>
+<td align="left">VUT</td>
+</tr>
+<tr class="odd">
+<td align="left">Venezuela (Bolivarian Republic of)</td>
+<td align="left">VEN</td>
+</tr>
+<tr class="even">
+<td align="left">Viet Nam</td>
+<td align="left">VNM</td>
+</tr>
+<tr class="odd">
+<td align="left">Virgin Islands (USA)</td>
+<td align="left">VIR</td>
+</tr>
+<tr class="even">
+<td align="left">Wallis and Futuna Islands</td>
+<td align="left">WLF</td>
+</tr>
+<tr class="odd">
+<td align="left">West Bank and Gaza Strip</td>
+<td align="left">PSE</td>
+</tr>
+<tr class="even">
+<td align="left">Yemen</td>
+<td align="left">YEM</td>
+</tr>
+<tr class="odd">
+<td align="left">Yugoslavia, Former</td>
+<td align="left">X13</td>
+</tr>
+<tr class="even">
+<td align="left">Zambia</td>
+<td align="left">ZMB</td>
+</tr>
+<tr class="odd">
+<td align="left">Zimbabwe</td>
+<td align="left">ZWE</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
