@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-09-03" />
+<meta name="date" content="2016-09-08" />
 
 <title>Introduction</title>
 
@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date"><em>2016-09-03</em></h4>
+<h4 class="date"><em>2016-09-08</em></h4>
 
 
 <div id="TOC">
@@ -90,18 +90,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="data-structure" class="section level2">
 <h2>Data structure</h2>
-<p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;dimensions&quot;, package = &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;codes-gho&quot;, package = &quot;rgho&quot;)</code>).</p>
+<p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;b-dimensions&quot;, &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;c-codes-gho&quot;, &quot;rgho&quot;)</code>).</p>
 <p>It is possible to access dimensions with <code>get_gho_dimensions()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_dimensions</span>()</code></pre></div>
 <pre><code>## A 'GHO' object of 115 elements.
 ## 
-##                  Label              ID
-## 1            Indicator             GHO
-## 2 Indicator Categories          GHOCAT
-## 3          Data Source      DATASOURCE
-## 4          Child cause  GBDCHILDCAUSES
-## 5      ICD10CAUSEGROUP ICD10CAUSEGROUP
-## 6         ICD10CHAPTER    ICD10CHAPTER
+##                                      Label                    ID
+## 1        SUBSTANCE_ABUSE_ADVERTISING_TYPES       ADVERTISINGTYPE
+## 2                                Age Group              AGEGROUP
+## 3     SUBSTANCE_ABUSE_ALCOHOL_POLICY_YEARS     ALCOHOLPOLICYYEAR
+## 4                           Beverage Types           ALCOHOLTYPE
+## 5 SUBSTANCE_ABUSE_AWARENESS_ACTIVITY_TYPES AWARENESSACTIVITYTYPE
+## 6               SUBSTANCE_ABUSE_BAC_GROUPS              BACGROUP
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
@@ -109,13 +109,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</code></pre></div>
 <pre><code>## A 'GHO' object of 247 elements.
 ## 
-##                 Label  ID
-## 1         Afghanistan AFG
-## 2             Albania ALB
-## 3             Algeria DZA
-## 4             Andorra AND
-## 5              Angola AGO
-## 6 Antigua and Barbuda ATG
+##         Label  ID
+## 1       Aruba ABW
+## 2 Afghanistan AFG
+## 3      Angola AGO
+## 4    Anguilla AIA
+## 5     Albania ALB
+## 6     Andorra AND
 ## ...
 ## 
 ## (Printing 6 first elements.)
@@ -145,22 +145,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 2196 elements.
+<pre><code>## A 'GHO' object of 2218 elements.
 ## 
-##                                                                                       Label
-## 1 Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)
-## 2                                   Adolescent birth rate (per 1000 women aged 15-19 years)
-## 3                                                              Contraceptive prevalence (%)
-## 4                                                        Unmet need for family planning (%)
-## 5            Under-five mortality rate (probability of dying by age 5 per 1000 live births)
-## 6                            Median availability of selected generic medicines (%) - Public
-##               ID
-## 1 MDG_0000000001
-## 2 MDG_0000000003
-## 3 MDG_0000000005
-## 4 MDG_0000000006
-## 5 MDG_0000000007
-## 6 MDG_0000000010
+##                                                                            Label
+## 1                                      Ambient air pollution attributable deaths
+## 2    Ambient air pollution attributable DALYs per 100'000 children under 5 years
+## 3                                    Household air pollution attributable deaths
+## 4          Household air pollution attributable deaths in children under 5 years
+## 5                 Household air pollution attributable deaths per 100'000 capita
+## 6 Household air pollution attributable deaths per 100'000 children under 5 years
+##       ID
+## 1  AIR_1
+## 2 AIR_10
+## 3 AIR_11
+## 4 AIR_12
+## 5 AIR_13
+## 6 AIR_14
 ## ...
 ## 
 ## (Printing 6 first elements.)
@@ -180,13 +180,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">search_dimensions</span>(<span class="st">&quot;region&quot;</span>)</code></pre></div>
 <pre><code>## A 'GHO' object of 10 elements.
 ## 
-##               Label              ID
-## 1        GBD Region       GBDREGION
-## 2        WHO region          REGION
-## 3        Sub Region       SUBREGION
-## 4     UN MDG Region     UNMDGREGION
-## 5         UN Region        UNREGION
-## 6 WHO Income Region WHOINCOMEREGION
+##                Label               ID
+## 1 Subnational region DHSMICSGEOREGION
+## 2         GBD Region        GBDREGION
+## 3             Region          MGHEREG
+## 4        OECD Region       OECDREGION
+## 5         WHO region           REGION
+## 6         Sub Region        SUBREGION
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
@@ -194,18 +194,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## A 'GHO' object of 7 elements.
 ## 
 ##                                                                                Label
-## 1                                        Neonatal tetanus - number of reported cases
+## 1                                              Number of neonatal deaths (thousands)
 ## 2                                     Neonatal mortality rate (per 1000 live births)
-## 3                     Neonates protected at birth against neonatal tetanus (PAB) (%)
-## 4 Distribution of causes of death among children aged &lt;5 years (%) - Neonatal sepsis
-## 5                                              Number of neonatal deaths (thousands)
+## 3 Distribution of causes of death among children aged &lt;5 years (%) - Neonatal sepsis
+## 4                                        Neonatal tetanus - number of reported cases
+## 5                     Neonates protected at birth against neonatal tetanus (PAB) (%)
 ## 6                              Neonatal mortality rate (deaths per 1000 live births)
 ##              ID
-## 1       WHS3_56
+## 1         CM_03
 ## 2 WHOSIS_000003
-## 3      WHS4_128
-## 4      WHS2_515
-## 5         CM_03
+## 3      WHS2_515
+## 4       WHS3_56
+## 5      WHS4_128
 ## 6           nmr
 ## ...
 ## 
@@ -225,17 +225,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## A 'GHO' object of 5 elements.
 ## 
 ##                                                            Label
-## 1                                                South-East Asia
-## 2 Low- and middle-income countries of the South-East Asia Region
-## 3                     South East Asia region, stratum B (SEAR B)
-## 4                     South East Asia region, stratum D (SEAR D)
-## 5            High income countries of the South-East Asia Region
+## 1                     South East Asia region, stratum B (SEAR B)
+## 2                     South East Asia region, stratum D (SEAR D)
+## 3                                                South-East Asia
+## 4            High income countries of the South-East Asia Region
+## 5 Low- and middle-income countries of the South-East Asia Region
 ##                ID
-## 1            SEAR
-## 2    WHO_LMI_SEAR
-## 3 GBD_REG14_SEARB
-## 4 GBD_REG14_SEARD
-## 5     WHO_HI_SEAR</code></pre>
+## 1 GBD_REG14_SEARB
+## 2 GBD_REG14_SEARD
+## 3            SEAR
+## 4     WHO_HI_SEAR
+## 5    WHO_LMI_SEAR</code></pre>
 </div>
 <div id="filtering-results" class="section level2">
 <h2>Filtering results</h2>
@@ -254,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 3    Armenia ARM
 ## 4    Austria AUT
 ## 5 Azerbaijan AZE
-## 6    Belarus BLR
+## 6    Belgium BEL
 ## ...
 ## 
 ## (Printing 6 first elements.)
@@ -302,28 +302,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 5,330 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  1996    AFR               WB_UMI     AGO
-## 2  MDG_0000000001    PUBLISHED  2002    AFR               WB_UMI     AGO
-## 3  MDG_0000000001    PUBLISHED  2010    AFR               WB_UMI     AGO
-## 4  MDG_0000000001    PUBLISHED  1993    AFR                WB_LI     BDI
-## 5  MDG_0000000001    PUBLISHED  2002    AFR                WB_LI     BDI
-## 6  MDG_0000000001    PUBLISHED  1999    AFR                WB_LI     ETH
-## 7  MDG_0000000001    PUBLISHED  2013    AFR                WB_LI     ETH
-## 8  MDG_0000000001    PUBLISHED  2004    AFR               WB_UMI     GAB
-## 9  MDG_0000000001    PUBLISHED  2004    AFR               WB_LMI     GHA
-## 10 MDG_0000000001    PUBLISHED  1995    AFR                WB_LI     GIN
+## 1  MDG_0000000001    PUBLISHED  1990    AFR               WB_UMI     AGO
+## 2  MDG_0000000001    PUBLISHED  2014    AFR               WB_UMI     AGO
+## 3  MDG_0000000001    PUBLISHED  1991    AFR                WB_LI     BDI
+## 4  MDG_0000000001    PUBLISHED  1999    AFR                WB_LI     BDI
+## 5  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BEN
+## 6  MDG_0000000001    PUBLISHED  2013    AFR                WB_LI     BEN
+## 7  MDG_0000000001    PUBLISHED  1993    AFR               WB_UMI     BWA
+## 8  MDG_0000000001    PUBLISHED  1995    AFR               WB_UMI     BWA
+## 9  MDG_0000000001    PUBLISHED  1996    AFR               WB_UMI     BWA
+## 10 MDG_0000000001    PUBLISHED  2001    AFR               WB_UMI     BWA
 ##        `Display Value` Numeric   Low  High Comments
 ##                  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1  132.3 [119.1-148.8]   132.3 119.1 148.8     &lt;NA&gt;
-## 2  125.5 [109.6-144.6]   125.5 109.6 144.6     &lt;NA&gt;
-## 3   109.6 [81.3-146.8]   109.6  81.3 146.8     &lt;NA&gt;
-## 4   104.8 [95.4-115.9]   104.8  95.4 115.9     &lt;NA&gt;
-## 5     88.6 [79.2-98.8]    88.6  79.2  98.8     &lt;NA&gt;
-## 6     92.6 [86.6-99.1]    92.6  86.6  99.1     &lt;NA&gt;
-## 7     44.5 [34.5-55.7]    44.5  34.5  55.7     &lt;NA&gt;
-## 8     51.4 [45.5-58.7]    51.4  45.5  58.7     &lt;NA&gt;
-## 9     58.1 [54.6-62.0]    58.1  54.6  62.0     &lt;NA&gt;
-## 10 122.3 [115.2-130.3]   122.3 115.2 130.3     &lt;NA&gt;
+## 1  133.5 [119.9-151.0]   133.5 119.9 151.0     &lt;NA&gt;
+## 2    98.8 [65.1-150.0]    98.8  65.1 150.0     &lt;NA&gt;
+## 3   104.5 [95.6-114.7]   104.5  95.6 114.7     &lt;NA&gt;
+## 4    95.7 [86.2-106.5]    95.7  86.2 106.5     &lt;NA&gt;
+## 5     78.8 [72.4-85.1]    78.8  72.4  85.1     &lt;NA&gt;
+## 6     67.2 [56.2-79.3]    67.2  56.2  79.3     &lt;NA&gt;
+## 7     45.7 [40.3-51.6]    45.7  40.3  51.6     &lt;NA&gt;
+## 8     48.9 [43.0-55.6]    48.9  43.0  55.6     &lt;NA&gt;
+## 9     50.2 [44.0-57.3]    50.2  44.0  57.3     &lt;NA&gt;
+## 10    51.4 [40.5-61.7]    51.4  40.5  61.7     &lt;NA&gt;
 ## # ... with 5,320 more rows</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
@@ -347,11 +347,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     MLT
 ## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     LTU
 ## 5  MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     KGZ
-## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     GRC
-## 7  MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     GEO
-## 8  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CZE
+## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CZE
+## 7  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     GRC
+## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     GEO
 ## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CYP
-## 10 MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
+## 10 MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     UKR
 ##     `Display Value` Numeric   Low  High Comments
 ##               &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
 ## 1     2.0 [1.7-2.4]     2.0   1.7   2.4     &lt;NA&gt;
@@ -359,16 +359,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 3     5.1 [4.1-6.5]     5.1   4.1   6.5     &lt;NA&gt;
 ## 4     3.3 [2.5-4.3]     3.3   2.5   4.3     &lt;NA&gt;
 ## 5  19.0 [17.0-21.5]    19.0  17.0  21.5     &lt;NA&gt;
-## 6     3.6 [3.2-4.1]     3.6   3.2   4.1     &lt;NA&gt;
-## 7   10.6 [8.9-13.3]    10.6   8.9  13.3     &lt;NA&gt;
-## 8     2.8 [2.5-3.1]     2.8   2.5   3.1     &lt;NA&gt;
+## 6     2.8 [2.5-3.1]     2.8   2.5   3.1     &lt;NA&gt;
+## 7     3.6 [3.2-4.1]     3.6   3.2   4.1     &lt;NA&gt;
+## 8   10.6 [8.9-13.3]    10.6   8.9  13.3     &lt;NA&gt;
 ## 9     2.5 [1.9-3.2]     2.5   1.9   3.2     &lt;NA&gt;
-## 10   9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
+## 10    7.7 [6.9-8.6]     7.7   6.9   8.6     &lt;NA&gt;
 ## # ... with 44 more rows</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
 <h2>Other parameters</h2>
 <p>Other parameters than <code>format</code> can be specified to <code>get_gho_data()</code> (such as <code>apikey</code>, <code>asof</code>…). Parameters are listed on <a href="http://apps.who.int/gho/data/node.resources.api">this page</a>. Note that most parameters are not available to general users.</p>
+<p>For details about how the requests are performed and the option availables see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
 </div>
 
 
