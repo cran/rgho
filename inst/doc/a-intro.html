@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-09-25" />
+<meta name="date" content="2016-10-10" />
 
 <title>Introduction</title>
 
@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date"><em>2016-09-25</em></h4>
+<h4 class="date"><em>2016-10-10</em></h4>
 
 
 <div id="TOC">
@@ -145,7 +145,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 2224 elements.
+<pre><code>## A 'GHO' object of 2225 elements.
 ## 
 ##                                                                            Label
 ## 1                                      Ambient air pollution attributable deaths
@@ -222,20 +222,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>It is also possible to search results from an existing object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;REGION&quot;</span>)
 <span class="kw">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 5 elements.
+<pre><code>## A 'GHO' object of 6 elements.
 ## 
 ##                                                            Label
 ## 1                     South East Asia region, stratum B (SEAR B)
 ## 2                     South East Asia region, stratum D (SEAR D)
 ## 3                                                South-East Asia
-## 4            High income countries of the South-East Asia Region
-## 5 Low- and middle-income countries of the South-East Asia Region
+## 4                                                South-East Asia
+## 5            High income countries of the South-East Asia Region
+## 6 Low- and middle-income countries of the South-East Asia Region
 ##                ID
 ## 1 GBD_REG14_SEARB
 ## 2 GBD_REG14_SEARD
-## 3            SEAR
-## 4     WHO_HI_SEAR
-## 5    WHO_LMI_SEAR</code></pre>
+## 3   OECD_NON_SEAR
+## 4            SEAR
+## 5     WHO_HI_SEAR
+## 6    WHO_LMI_SEAR</code></pre>
 </div>
 <div id="filtering-results" class="section level2">
 <h2>Filtering results</h2>
@@ -302,28 +304,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 5,330 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  1990    AFR                WB_LI     BDI
-## 2  MDG_0000000001    PUBLISHED  2004    AFR                WB_LI     BDI
-## 3  MDG_0000000001    PUBLISHED  1998    AFR                WB_LI     BEN
-## 4  MDG_0000000001    PUBLISHED  2004    AFR                WB_LI     BEN
-## 5  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BFA
-## 6  MDG_0000000001    PUBLISHED  2012    AFR                WB_LI     BFA
-## 7  MDG_0000000001    PUBLISHED  2013    AFR                WB_LI     BFA
-## 8  MDG_0000000001    PUBLISHED  2004    AFR               WB_UMI     BWA
-## 9  MDG_0000000001    PUBLISHED  2010    AFR               WB_UMI     BWA
-## 10 MDG_0000000001    PUBLISHED  2012    AFR               WB_UMI     BWA
-##       `Display Value` Numeric   Low  High Comments
-##                 &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1  103.9 [95.2-113.8]   103.9  95.2 113.8     &lt;NA&gt;
-## 2    82.9 [73.3-93.5]    82.9  73.3  93.5     &lt;NA&gt;
-## 3    92.7 [87.4-98.6]    92.7  87.4  98.6     &lt;NA&gt;
-## 4    80.8 [75.0-86.8]    80.8  75.0  86.8     &lt;NA&gt;
-## 5  100.5 [95.6-105.6]   100.5  95.6 105.6     &lt;NA&gt;
-## 6    65.4 [58.9-72.7]    65.4  58.9  72.7     &lt;NA&gt;
-## 7    63.7 [56.6-72.0]    63.7  56.6  72.0     &lt;NA&gt;
-## 8    49.1 [34.4-61.8]    49.1  34.4  61.8     &lt;NA&gt;
-## 9    39.8 [23.5-58.2]    39.8  23.5  58.2     &lt;NA&gt;
-## 10   38.2 [21.6-59.2]    38.2  21.6  59.2     &lt;NA&gt;
+## 1  MDG_0000000001    PUBLISHED  1991    AFR               WB_UMI     AGO
+## 2  MDG_0000000001    PUBLISHED  1999    AFR               WB_UMI     AGO
+## 3  MDG_0000000001    PUBLISHED  2005    AFR               WB_UMI     AGO
+## 4  MDG_0000000001    PUBLISHED  2007    AFR               WB_UMI     AGO
+## 5  MDG_0000000001    PUBLISHED  2008    AFR               WB_UMI     AGO
+## 6  MDG_0000000001    PUBLISHED  2013    AFR               WB_UMI     AGO
+## 7  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BDI
+## 8  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BDI
+## 9  MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BDI
+## 10 MDG_0000000001    PUBLISHED  2013    AFR                WB_LI     BDI
+##        `Display Value` Numeric   Low  High Comments
+##                  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
+## 1  133.5 [120.1-150.4]   133.5 120.1 150.4     &lt;NA&gt;
+## 2  129.5 [115.4-146.6]   129.5 115.4 146.6     &lt;NA&gt;
+## 3  121.2 [101.1-145.1]   121.2 101.1 145.1     &lt;NA&gt;
+## 4   117.1 [93.9-145.2]   117.1  93.9 145.2     &lt;NA&gt;
+## 5   114.7 [89.9-145.3]   114.7  89.9 145.3     &lt;NA&gt;
+## 6   101.4 [68.8-149.2]   101.4  68.8 149.2     &lt;NA&gt;
+## 7   101.7 [92.0-113.4]   101.7  92.0 113.4     &lt;NA&gt;
+## 8     79.7 [69.6-90.6]    79.7  69.6  90.6     &lt;NA&gt;
+## 9     72.7 [61.2-85.9]    72.7  61.2  85.9     &lt;NA&gt;
+## 10    57.6 [40.4-81.5]    57.6  40.4  81.5     &lt;NA&gt;
 ## # ... with 5,320 more rows</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
@@ -342,28 +344,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 54 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     SRB
-## 2  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     NLD
-## 3  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     MKD
-## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     FIN
-## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AND
-## 6  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ALB
-## 7  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     KAZ
-## 8  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CHE
-## 9  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
-## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
+## 1  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
+## 2  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
+## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     HUN
+## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     ESP
+## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DNK
+## 6  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     AZE
+## 7  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
+## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     SRB
+## 9  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     MKD
+## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     FIN
 ##     `Display Value` Numeric   Low  High Comments
 ##               &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1     5.9 [4.9-7.0]     5.9   4.9   7.0     &lt;NA&gt;
-## 2     3.2 [2.9-3.6]     3.2   2.9   3.6     &lt;NA&gt;
-## 3     4.8 [2.7-7.2]     4.8   2.7   7.2     &lt;NA&gt;
-## 4     1.9 [1.6-2.2]     1.9   1.6   2.2     &lt;NA&gt;
-## 5     2.1 [1.3-3.5]     2.1   1.3   3.5     &lt;NA&gt;
-## 6   12.5 [7.0-22.2]    12.5   7.0  22.2     &lt;NA&gt;
-## 7  12.6 [10.8-14.6]    12.6  10.8  14.6     &lt;NA&gt;
-## 8     3.4 [2.9-4.0]     3.4   2.9   4.0     &lt;NA&gt;
-## 9    9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
-## 10    4.5 [4.0-5.1]     4.5   4.0   5.1     &lt;NA&gt;
+## 1    9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
+## 2     4.5 [4.0-5.1]     4.5   4.0   5.1     &lt;NA&gt;
+## 3     5.3 [4.8-5.9]     5.3   4.8   5.9     &lt;NA&gt;
+## 4     3.5 [2.9-4.2]     3.5   2.9   4.2     &lt;NA&gt;
+## 5     2.9 [2.4-3.5]     2.9   2.4   3.5     &lt;NA&gt;
+## 6  27.9 [17.6-44.5]    27.9  17.6  44.5     &lt;NA&gt;
+## 7     2.9 [2.6-3.2]     2.9   2.6   3.2     &lt;NA&gt;
+## 8     5.9 [4.9-7.0]     5.9   4.9   7.0     &lt;NA&gt;
+## 9     4.8 [2.7-7.2]     4.8   2.7   7.2     &lt;NA&gt;
+## 10    1.9 [1.6-2.2]     1.9   1.6   2.2     &lt;NA&gt;
 ## # ... with 44 more rows</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
