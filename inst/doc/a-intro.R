@@ -19,13 +19,16 @@ search_gho(result, "asia")
 ## ------------------------------------------------------------------------
 results <- get_gho_codes(dimension = "COUNTRY")
 
-filter_attrs(
+filter_gho(
   results,
   WHO_REGION_CODE == "EUR"
 )
 
 ## ------------------------------------------------------------------------
-values_attrs(
+display_attributes(
+  results
+)
+display_attribute_values(
   results,
   "WHO_REGION_CODE"
 )

@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-10-10" />
+<meta name="date" content="2016-11-08" />
 
 <title>Introduction</title>
 
@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date"><em>2016-10-10</em></h4>
+<h4 class="date"><em>2016-11-08</em></h4>
 
 
 <div id="TOC">
@@ -145,7 +145,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 2225 elements.
+<pre><code>## A 'GHO' object of 2228 elements.
 ## 
 ##                                                                            Label
 ## 1                                      Ambient air pollution attributable deaths
@@ -244,7 +244,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Dimension codes can be filtered according to their attributes.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)
 
-<span class="kw">filter_attrs</span>(
+<span class="kw">filter_gho</span>(
   results,
   WHO_REGION_CODE ==<span class="st"> &quot;EUR&quot;</span>
 )</code></pre></div>
@@ -285,8 +285,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_CODE
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
-<p>Attribute values can be displayed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">values_attrs</span>(
+<p>Attribute names and values can be displayed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">display_attributes</span>(
+  results
+)</code></pre></div>
+<pre><code>##  [1] &quot;code&quot;                                      
+##  [2] &quot;DS&quot;                                        
+##  [3] &quot;FIPS&quot;                                      
+##  [4] &quot;GEOMETRY&quot;                                  
+##  [5] &quot;IOC&quot;                                       
+##  [6] &quot;ISO&quot;                                       
+##  [7] &quot;ISO2&quot;                                      
+##  [8] &quot;ITU&quot;                                       
+##  [9] &quot;LAND_AREA_KMSQ_2012&quot;                       
+## [10] &quot;LANGUAGES_EN_2012&quot;                         
+## [11] &quot;MARC&quot;                                      
+## [12] &quot;MORT&quot;                                      
+## [13] &quot;SHORTNAMEES&quot;                               
+## [14] &quot;SHORTNAMEFR&quot;                               
+## [15] &quot;WHO&quot;                                       
+## [16] &quot;WHOLEGALSTATUS&quot;                            
+## [17] &quot;WHO_REGION&quot;                                
+## [18] &quot;WHO_REGION_CODE&quot;                           
+## [19] &quot;WMO&quot;                                       
+## [20] &quot;WORLD_BANK_INCOME_GROUP&quot;                   
+## [21] &quot;WORLD_BANK_INCOME_GROUP_CODE&quot;              
+## [22] &quot;WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR&quot;
+## [23] &quot;WORLD_BANK_INCOME_GROUP_RELEASE_DATE&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">display_attribute_values</span>(
   results,
   <span class="st">&quot;WHO_REGION_CODE&quot;</span>
 )</code></pre></div>
@@ -307,25 +333,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 1  MDG_0000000001    PUBLISHED  1991    AFR               WB_UMI     AGO
 ## 2  MDG_0000000001    PUBLISHED  1999    AFR               WB_UMI     AGO
 ## 3  MDG_0000000001    PUBLISHED  2005    AFR               WB_UMI     AGO
-## 4  MDG_0000000001    PUBLISHED  2007    AFR               WB_UMI     AGO
-## 5  MDG_0000000001    PUBLISHED  2008    AFR               WB_UMI     AGO
-## 6  MDG_0000000001    PUBLISHED  2013    AFR               WB_UMI     AGO
-## 7  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BDI
-## 8  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BDI
-## 9  MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BDI
-## 10 MDG_0000000001    PUBLISHED  2013    AFR                WB_LI     BDI
+## 4  MDG_0000000001    PUBLISHED  2006    AFR               WB_UMI     AGO
+## 5  MDG_0000000001    PUBLISHED  2007    AFR               WB_UMI     AGO
+## 6  MDG_0000000001    PUBLISHED  2008    AFR               WB_UMI     AGO
+## 7  MDG_0000000001    PUBLISHED  2013    AFR               WB_UMI     AGO
+## 8  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BDI
+## 9  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BDI
+## 10 MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BDI
 ##        `Display Value` Numeric   Low  High Comments
 ##                  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
 ## 1  133.5 [120.1-150.4]   133.5 120.1 150.4     &lt;NA&gt;
 ## 2  129.5 [115.4-146.6]   129.5 115.4 146.6     &lt;NA&gt;
 ## 3  121.2 [101.1-145.1]   121.2 101.1 145.1     &lt;NA&gt;
-## 4   117.1 [93.9-145.2]   117.1  93.9 145.2     &lt;NA&gt;
-## 5   114.7 [89.9-145.3]   114.7  89.9 145.3     &lt;NA&gt;
-## 6   101.4 [68.8-149.2]   101.4  68.8 149.2     &lt;NA&gt;
-## 7   101.7 [92.0-113.4]   101.7  92.0 113.4     &lt;NA&gt;
-## 8     79.7 [69.6-90.6]    79.7  69.6  90.6     &lt;NA&gt;
-## 9     72.7 [61.2-85.9]    72.7  61.2  85.9     &lt;NA&gt;
-## 10    57.6 [40.4-81.5]    57.6  40.4  81.5     &lt;NA&gt;
+## 4   119.4 [97.6-144.9]   119.4  97.6 144.9     &lt;NA&gt;
+## 5   117.1 [93.9-145.2]   117.1  93.9 145.2     &lt;NA&gt;
+## 6   114.7 [89.9-145.3]   114.7  89.9 145.3     &lt;NA&gt;
+## 7   101.4 [68.8-149.2]   101.4  68.8 149.2     &lt;NA&gt;
+## 8   101.7 [92.0-113.4]   101.7  92.0 113.4     &lt;NA&gt;
+## 9     79.7 [69.6-90.6]    79.7  69.6  90.6     &lt;NA&gt;
+## 10    72.7 [61.2-85.9]    72.7  61.2  85.9     &lt;NA&gt;
 ## # ... with 5,320 more rows</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
@@ -344,34 +370,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 54 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
-## 2  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
-## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     HUN
+## 1  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
+## 2  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     AZE
+## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DNK
 ## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     ESP
-## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DNK
-## 6  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     AZE
-## 7  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
-## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     SRB
-## 9  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     MKD
-## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     FIN
+## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     HUN
+## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
+## 7  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
+## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ALB
+## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AND
+## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CHE
 ##     `Display Value` Numeric   Low  High Comments
 ##               &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1    9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
-## 2     4.5 [4.0-5.1]     4.5   4.0   5.1     &lt;NA&gt;
-## 3     5.3 [4.8-5.9]     5.3   4.8   5.9     &lt;NA&gt;
+## 1     2.9 [2.6-3.2]     2.9   2.6   3.2     &lt;NA&gt;
+## 2  27.9 [17.6-44.5]    27.9  17.6  44.5     &lt;NA&gt;
+## 3     2.9 [2.4-3.5]     2.9   2.4   3.5     &lt;NA&gt;
 ## 4     3.5 [2.9-4.2]     3.5   2.9   4.2     &lt;NA&gt;
-## 5     2.9 [2.4-3.5]     2.9   2.4   3.5     &lt;NA&gt;
-## 6  27.9 [17.6-44.5]    27.9  17.6  44.5     &lt;NA&gt;
-## 7     2.9 [2.6-3.2]     2.9   2.6   3.2     &lt;NA&gt;
-## 8     5.9 [4.9-7.0]     5.9   4.9   7.0     &lt;NA&gt;
-## 9     4.8 [2.7-7.2]     4.8   2.7   7.2     &lt;NA&gt;
-## 10    1.9 [1.6-2.2]     1.9   1.6   2.2     &lt;NA&gt;
+## 5     5.3 [4.8-5.9]     5.3   4.8   5.9     &lt;NA&gt;
+## 6     4.5 [4.0-5.1]     4.5   4.0   5.1     &lt;NA&gt;
+## 7    9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
+## 8   12.5 [7.0-22.2]    12.5   7.0  22.2     &lt;NA&gt;
+## 9     2.1 [1.3-3.5]     2.1   1.3   3.5     &lt;NA&gt;
+## 10    3.4 [2.9-4.0]     3.4   2.9   4.0     &lt;NA&gt;
 ## # ... with 44 more rows</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
 <h2>Other parameters</h2>
 <p>Other parameters than <code>format</code> can be specified to <code>get_gho_data()</code> (such as <code>apikey</code>, <code>asof</code>…). Parameters are listed on <a href="http://apps.who.int/gho/data/node.resources.api">this page</a>. Note that most parameters are not available to general users.</p>
-<p>For details about how the requests are performed and the option availables see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
+<p>For details about how the requests are performed and the option availables (especially proxy settings) see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
 </div>
 
 

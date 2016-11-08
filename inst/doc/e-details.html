@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-10-10" />
+<meta name="date" content="2016-11-08" />
 
 <title>Details</title>
 
@@ -30,7 +30,7 @@
 
 
 <h1 class="title toc-ignore">Details</h1>
-<h4 class="date"><em>2016-10-10</em></h4>
+<h4 class="date"><em>2016-11-08</em></h4>
 
 
 <div id="TOC">
@@ -42,21 +42,22 @@
 </ul>
 </div>
 
-<div id="verbose-mode" class="section level1">
-<h1>Verbose mode</h1>
+<div id="verbose-mode" class="section level2">
+<h2>Verbose mode</h2>
 <p>Request informations can be displayed by setting <code>options(&quot;rgho.verbose&quot;)</code> to <code>TRUE</code>.</p>
 </div>
-<div id="memoisation" class="section level1">
-<h1>Memoisation</h1>
+<div id="memoisation" class="section level2">
+<h2>Memoisation</h2>
 <p>Request results are memoised. The results of requests are cached, and repeating a request with the same parameters will return the cached result without doing a new query.</p>
 <p>The cache is cleared after a delay in order to avoid returning out-of-date data. By default this delay is set to <code>options(&quot;rgho.memotime&quot;)</code> seconds (by default 3600).</p>
+<p>Changing the option has no impact on requests that were already memoised.</p>
 </div>
-<div id="proxy-settings" class="section level1">
-<h1>Proxy settings</h1>
-<p><code>rgho</code> tries to fetch MS Windows proxy settings with <code>curl::ie_get_proxy_for_url()</code>. If a list of proxies is returned the request will loop over the list until it succeeds.</p>
+<div id="proxy-settings" class="section level2">
+<h2>Proxy settings</h2>
+<p>The proxy settings are set through the <code>rgho.http_proxy</code> option. Proxy is passed as a character strings of the form <code>&quot;http://username:password@url:port&quot;</code>.</p>
 </div>
-<div id="retry-failed-requests" class="section level1">
-<h1>Retry failed requests</h1>
+<div id="retry-failed-requests" class="section level2">
+<h2>Retry failed requests</h2>
 <p>Failed requests are retried a maximum of <code>options(&quot;rgho.retry&quot;)</code> (by default 5 times).</p>
 </div>
 
