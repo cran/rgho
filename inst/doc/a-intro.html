@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2016-11-08" />
+<meta name="date" content="2017-01-18" />
 
 <title>Introduction</title>
 
@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date"><em>2016-11-08</em></h4>
+<h4 class="date"><em>2017-01-18</em></h4>
 
 
 <div id="TOC">
@@ -145,7 +145,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</code></pre></div>
-<pre><code>## A 'GHO' object of 2228 elements.
+<pre><code>## A 'GHO' object of 2232 elements.
 ## 
 ##                                                                            Label
 ## 1                                      Ambient air pollution attributable deaths
@@ -173,6 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## DISPLAY_FR
 ## IMR_ID
 ## RENDERER_ID</code></pre>
+<p>The number of printed items can be changed by the option <code>rgho.n</code>.</p>
 </div>
 <div id="search" class="section level2">
 <h2>Search</h2>
@@ -330,28 +331,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 5,330 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  1991    AFR               WB_UMI     AGO
-## 2  MDG_0000000001    PUBLISHED  1999    AFR               WB_UMI     AGO
-## 3  MDG_0000000001    PUBLISHED  2005    AFR               WB_UMI     AGO
-## 4  MDG_0000000001    PUBLISHED  2006    AFR               WB_UMI     AGO
-## 5  MDG_0000000001    PUBLISHED  2007    AFR               WB_UMI     AGO
-## 6  MDG_0000000001    PUBLISHED  2008    AFR               WB_UMI     AGO
-## 7  MDG_0000000001    PUBLISHED  2013    AFR               WB_UMI     AGO
-## 8  MDG_0000000001    PUBLISHED  1996    AFR                WB_LI     BDI
-## 9  MDG_0000000001    PUBLISHED  2005    AFR                WB_LI     BDI
-## 10 MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BDI
-##        `Display Value` Numeric   Low  High Comments
-##                  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1  133.5 [120.1-150.4]   133.5 120.1 150.4     &lt;NA&gt;
-## 2  129.5 [115.4-146.6]   129.5 115.4 146.6     &lt;NA&gt;
-## 3  121.2 [101.1-145.1]   121.2 101.1 145.1     &lt;NA&gt;
-## 4   119.4 [97.6-144.9]   119.4  97.6 144.9     &lt;NA&gt;
-## 5   117.1 [93.9-145.2]   117.1  93.9 145.2     &lt;NA&gt;
-## 6   114.7 [89.9-145.3]   114.7  89.9 145.3     &lt;NA&gt;
-## 7   101.4 [68.8-149.2]   101.4  68.8 149.2     &lt;NA&gt;
-## 8   101.7 [92.0-113.4]   101.7  92.0 113.4     &lt;NA&gt;
-## 9     79.7 [69.6-90.6]    79.7  69.6  90.6     &lt;NA&gt;
-## 10    72.7 [61.2-85.9]    72.7  61.2  85.9     &lt;NA&gt;
+## 1  MDG_0000000001    PUBLISHED  2001    AFR                WB_LI     BEN
+## 2  MDG_0000000001    PUBLISHED  1999    AFR                WB_LI     BFA
+## 3  MDG_0000000001    PUBLISHED  2006    AFR                WB_LI     BFA
+## 4  MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BFA
+## 5  MDG_0000000001    PUBLISHED  2009    AFR                WB_LI     BFA
+## 6  MDG_0000000001    PUBLISHED  1992    AFR               WB_UMI     BWA
+## 7  MDG_0000000001    PUBLISHED  1999    AFR               WB_UMI     BWA
+## 8  MDG_0000000001    PUBLISHED  2015    AFR               WB_UMI     BWA
+## 9  MDG_0000000001    PUBLISHED  2002    AFR                WB_LI     BEN
+## 10 MDG_0000000001    PUBLISHED  2007    AFR                WB_LI     BEN
+##      `Display Value` Numeric   Low  High Comments
+##                &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
+## 1   87.4 [81.9-93.2]    87.4  81.9  93.2     &lt;NA&gt;
+## 2  97.3 [92.3-102.5]    97.3  92.3 102.5     &lt;NA&gt;
+## 3   82.7 [78.0-87.8]    82.7  78.0  87.8     &lt;NA&gt;
+## 4   79.2 [74.6-84.1]    79.2  74.6  84.1     &lt;NA&gt;
+## 5   72.5 [67.8-77.8]    72.5  67.8  77.8     &lt;NA&gt;
+## 6   44.2 [38.9-49.7]    44.2  38.9  49.7     &lt;NA&gt;
+## 7   53.1 [44.2-62.1]    53.1  44.2  62.1     &lt;NA&gt;
+## 8   34.8 [18.6-58.1]    34.8  18.6  58.1     &lt;NA&gt;
+## 9   85.2 [79.8-90.9]    85.2  79.8  90.9     &lt;NA&gt;
+## 10  75.2 [67.7-82.3]    75.2  67.7  82.3     &lt;NA&gt;
 ## # ... with 5,320 more rows</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
@@ -370,28 +371,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## # A tibble: 54 × 11
 ##               GHO PUBLISHSTATE  YEAR REGION WORLDBANKINCOMEGROUP COUNTRY
 ##             &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;
-## 1  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
-## 2  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     AZE
-## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DNK
-## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     ESP
-## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     HUN
-## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     POL
-## 7  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ROU
-## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     ALB
-## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AND
-## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     CHE
-##     `Display Value` Numeric   Low  High Comments
-##               &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
-## 1     2.9 [2.6-3.2]     2.9   2.6   3.2     &lt;NA&gt;
-## 2  27.9 [17.6-44.5]    27.9  17.6  44.5     &lt;NA&gt;
-## 3     2.9 [2.4-3.5]     2.9   2.4   3.5     &lt;NA&gt;
-## 4     3.5 [2.9-4.2]     3.5   2.9   4.2     &lt;NA&gt;
-## 5     5.3 [4.8-5.9]     5.3   4.8   5.9     &lt;NA&gt;
-## 6     4.5 [4.0-5.1]     4.5   4.0   5.1     &lt;NA&gt;
-## 7    9.7 [8.7-10.9]     9.7   8.7  10.9     &lt;NA&gt;
-## 8   12.5 [7.0-22.2]    12.5   7.0  22.2     &lt;NA&gt;
-## 9     2.1 [1.3-3.5]     2.1   1.3   3.5     &lt;NA&gt;
-## 10    3.4 [2.9-4.0]     3.4   2.9   4.0     &lt;NA&gt;
+## 1  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     BEL
+## 2  MDG_0000000001    PUBLISHED  2015    EUR               WB_UMI     BGR
+## 3  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     DEU
+## 4  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     EST
+## 5  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     ISL
+## 6  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     LUX
+## 7  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     LVA
+## 8  MDG_0000000001    PUBLISHED  2015    EUR               WB_LMI     MDA
+## 9  MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     PRT
+## 10 MDG_0000000001    PUBLISHED  2015    EUR                WB_HI     AUT
+##    `Display Value` Numeric   Low  High Comments
+##              &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;chr&gt;
+## 1    3.3 [3.0-3.6]     3.3   3.0   3.6     &lt;NA&gt;
+## 2   9.3 [8.5-10.2]     9.3   8.5  10.2     &lt;NA&gt;
+## 3    3.1 [2.9-3.3]     3.1   2.9   3.3     &lt;NA&gt;
+## 4    2.3 [2.0-2.8]     2.3   2.0   2.8     &lt;NA&gt;
+## 5    1.6 [1.1-2.3]     1.6   1.1   2.3     &lt;NA&gt;
+## 6    1.5 [1.1-2.1]     1.5   1.1   2.1     &lt;NA&gt;
+## 7    6.9 [5.1-9.5]     6.9   5.1   9.5     &lt;NA&gt;
+## 8  13.6 [9.6-19.8]    13.6   9.6  19.8     &lt;NA&gt;
+## 9    3.0 [2.5-3.6]     3.0   2.5   3.6     &lt;NA&gt;
+## 10   2.9 [2.6-3.2]     2.9   2.6   3.2     &lt;NA&gt;
 ## # ... with 44 more rows</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
