@@ -1,21 +1,84 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2020-04-04" />
+<meta name="date" content="2020-11-30" />
 
 <title>Codes for the COUNTRY Dimension</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -31,9 +94,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -202,7 +262,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -216,11 +277,17 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Codes for the COUNTRY Dimension</h1>
-<h4 class="date">2020-04-04</h4>
+<h4 class="date">2020-11-30</h4>
 
 
 
 <p>Available codes for the COUNTRY dimension:</p>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -862,76 +929,76 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="left">NFK</td>
 </tr>
 <tr class="odd">
+<td align="left">North Macedonia</td>
+<td align="left">MKD</td>
+</tr>
+<tr class="even">
 <td align="left">Northern Mariana Islands</td>
 <td align="left">MNP</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Norway</td>
 <td align="left">NOR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Oman</td>
 <td align="left">OMN</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Pakistan</td>
 <td align="left">PAK</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Palau</td>
 <td align="left">PLW</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Panama</td>
 <td align="left">PAN</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Papua New Guinea</td>
 <td align="left">PNG</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Paraguay</td>
 <td align="left">PRY</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Peru</td>
 <td align="left">PER</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Philippines</td>
 <td align="left">PHL</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Pitcairn Island</td>
 <td align="left">PCN</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Poland</td>
 <td align="left">POL</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Portugal</td>
 <td align="left">PRT</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Puerto Rico</td>
 <td align="left">PRI</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Qatar</td>
 <td align="left">QAT</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Republic of Korea</td>
 <td align="left">KOR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Republic of Moldova</td>
 <td align="left">MDA</td>
-</tr>
-<tr class="even">
-<td align="left">Republic of North Macedonia</td>
-<td align="left">MKD</td>
 </tr>
 <tr class="odd">
 <td align="left">Reunion</td>
@@ -1198,24 +1265,24 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="left">WLF</td>
 </tr>
 <tr class="odd">
-<td align="left">West Bank and Gaza Strip</td>
-<td align="left">PSE</td>
-</tr>
-<tr class="even">
 <td align="left">Yemen</td>
 <td align="left">YEM</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Yugoslavia, Former</td>
 <td align="left">X13</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Zambia</td>
 <td align="left">ZMB</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Zimbabwe</td>
 <td align="left">ZWE</td>
+</tr>
+<tr class="odd">
+<td align="left">occupied Palestinian territory, including east Jerusalem</td>
+<td align="left">PSE</td>
 </tr>
 </tbody>
 </table>

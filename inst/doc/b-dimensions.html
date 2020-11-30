@@ -1,21 +1,84 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2020-04-04" />
+<meta name="date" content="2020-11-30" />
 
 <title>Dimension Names</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -31,9 +94,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -202,7 +262,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -216,11 +277,15 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Dimension Names</h1>
-<h4 class="date">2020-04-04</h4>
+<h4 class="date">2020-11-30</h4>
 
 
 
 <p>Available GHO dimensions:</p>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -254,520 +319,528 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="left">AMRGLASSCATEGORY</td>
 </tr>
 <tr class="odd">
+<td align="left">Archive date</td>
+<td align="left">ARCHIVE</td>
+</tr>
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_AWARENESS_ACTIVITY_TYPES</td>
 <td align="left">AWARENESSACTIVITYTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SUBSTANCE_ABUSE_BAC_GROUPS</td>
 <td align="left">BACGROUP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_BEVERAGE_TYPES</td>
 <td align="left">BEVERAGETYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Case definition</td>
 <td align="left">CASE_DEFINITION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Cause of death</td>
 <td align="left">CHILDCAUSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_CLINICAL_SUPERVISION</td>
 <td align="left">CLINICALSUPERVISION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Community Action</td>
 <td align="left">COMMUNITYACTIONTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Consumption type</td>
 <td align="left">CONSUMPTIONTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_COORDINATING_ENTITIES</td>
 <td align="left">COORDINATINGENTITIES</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Core Health Indicator</td>
 <td align="left">CORE_HEALTH_INDICATOR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Country</td>
 <td align="left">COUNTRY</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Country Group</td>
 <td align="left">CTRYGROUP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Data Source</td>
 <td align="left">DATASOURCE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Day</td>
 <td align="left">DAY</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Subnational region</td>
 <td align="left">DHSMICSGEOREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Disease Cause</td>
 <td align="left">DISEASECAUSE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Disease Cause Group</td>
 <td align="left">DISEASECAUSEGROUP</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Disease Cause Sub Group</td>
 <td align="left">DISEASECAUSESUBGROUP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Disease Sub Cause</td>
 <td align="left">DISEASESUBCAUSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Donor type</td>
 <td align="left">DONORTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Drinking and Driving Definition Type</td>
 <td align="left">DRINKDRIVINGDEFINITIONTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Driver Type</td>
 <td align="left">DRIVERTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Driving Test Type</td>
 <td align="left">DRIVINGTESTTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_DRUGS</td>
 <td align="left">DRUG</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RSUD_DRUG_PRESCRIPTION</td>
 <td align="left">DRUGPRESCRIPTION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_DRUG_SUPERVISION</td>
 <td align="left">DRUGSUPERVISION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Education Level</td>
 <td align="left">EDUCATIONLEVEL</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Body part</td>
 <td align="left">EMFBODYPART</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Exposed</td>
 <td align="left">EMFEXPOSED</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Field</td>
 <td align="left">EMFFIELD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Frequency</td>
 <td align="left">EMFFREQUENCY</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Radio band</td>
 <td align="left">EMFRADIOBAND</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Cause</td>
 <td align="left">ENVCAUSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Response rate</td>
 <td align="left">ESSMEDSRESPONSE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GBD Cause</td>
 <td align="left">GBDCAUSECODE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Child cause</td>
 <td align="left">GBDCHILDCAUSES</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GBD Region</td>
 <td align="left">GBDREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GBD Types</td>
 <td align="left">GBDTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Causes</td>
 <td align="left">GHECAUSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Cause group</td>
 <td align="left">GHECAUSELEVEL1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Cause</td>
 <td align="left">GHECAUSELEVEL2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Subcause group</td>
 <td align="left">GHECAUSELEVEL3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Subcause</td>
 <td align="left">GHECAUSELEVEL4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Causes</td>
 <td align="left">GHECAUSES</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Indicator</td>
 <td align="left">GHO</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Indicator Categories</td>
 <td align="left">GHOCAT</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Goe question</td>
 <td align="left">GOEQUESTION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_GOVERNMENT_BENEFITS</td>
 <td align="left">GOVERNMENTBENEFIT</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RSUD_GROUPS</td>
 <td align="left">GROUP</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SUBSTANCE_ABUSE_HARM_AND_CONSEQUENCES</td>
 <td align="left">HARMANDCONSEQUENCE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Health Status</td>
 <td align="left">HEALTHSTATUS</td>
 </tr>
+<tr class="odd">
+<td align="left">ICD10CAUSEGROUP</td>
+<td align="left">ICD10CAUSEGROUP</td>
+</tr>
 <tr class="even">
-<td align="left">ICD10CAUSEGROUP</td>
-<td align="left">ICD10CAUSEGROUP</td>
+<td align="left">ICD10CHAPTER</td>
+<td align="left">ICD10CHAPTER</td>
 </tr>
 <tr class="odd">
-<td align="left">ICD10CHAPTER</td>
-<td align="left">ICD10CHAPTER</td>
-</tr>
-<tr class="even">
 <td align="left">ICD Implementation</td>
 <td align="left">ICDIMPL</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">IHR SPAR Capacity Level</td>
 <td align="left">IHRSPARCAPACITYLEVEL</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Inadequacy</td>
 <td align="left">INADEQUACY</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Income Level</td>
 <td align="left">INCOMELEVEL</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Indicator</td>
 <td align="left">INDICATOR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_INDUSTRY_TYPES</td>
 <td align="left">INDUSTRYTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Kenya Core Indicators</td>
 <td align="left">KE_CORE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">County</td>
 <td align="left">KE_COUNTY</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Legislation exists</td>
 <td align="left">LEGISLATIONAREA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Legislation type</td>
 <td align="left">LEGISLATIONTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">LOCATION</td>
 <td align="left">LOCATION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Location Type</td>
 <td align="left">LOCATIONTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Malaria method of confirmation</td>
 <td align="left">MALARIAMETHODOFCONFIRMATION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_MEASURE_IMPORTANCE_TYPE</td>
 <td align="left">MEASUREIMPORTANCETYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">MEASUREMENT_METHODS</td>
 <td align="left">MEASUREMENTMETHODS</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Region</td>
 <td align="left">MGHEREG</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Month</td>
 <td align="left">MONTH</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MORT Cause</td>
 <td align="left">MORTCAUSE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Motorcycle Occupant Type</td>
 <td align="left">MOTOCYCLEOCCUPANTTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">National System Type</td>
 <td align="left">NATIONALSYSTEMTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_NGOS</td>
 <td align="left">NGO</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">OECD Region</td>
 <td align="left">OECDREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_OPEN_ACCESS_SERVICES</td>
 <td align="left">OPENACCESSSERVICE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Penalty Type</td>
 <td align="left">PENALTYTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Periodicity</td>
 <td align="left">PERIODICITY</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Phone Access Type</td>
 <td align="left">PHONEACCESSTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Place</td>
 <td align="left">PLACE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_POLICY_ADOPTION_LEVELS</td>
 <td align="left">POLICYADOPTIONLEVEL</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SUBSTANCE_ABUSE_POLICY_FRAMEWORKS</td>
 <td align="left">POLICYFRAMEWORK</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_POLICY_SECTORS</td>
 <td align="left">POLICYSECTOR</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Price measure types</td>
 <td align="left">PRICEMEASURETYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RSUD_PROGRAMMES</td>
 <td align="left">PROGRAMME</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Provider</td>
 <td align="left">PROVIDER</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SUBSTANCE_ABUSE_PUBLIC_PLACES</td>
 <td align="left">PUBLICPLACE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_PUBLIC_PRIVATE_SETTINGS</td>
 <td align="left">PUBLICPRIVATESETTING</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PUBLISH STATES</td>
 <td align="left">PUBLISHSTATE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Quarter</td>
 <td align="left">QTR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Radon subquestions</td>
 <td align="left">RADONSUBQUESTIONS</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">WHO region</td>
 <td align="left">REGION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Renderer</td>
 <td align="left">RENDERER</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Residence Area Type</td>
 <td align="left">RESIDENCEAREATYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Road User Type</td>
 <td align="left">ROADUSERTYPE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Human resources / health workforce</td>
 <td align="left">RSUDHWF</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RSUD Main substance at treatment</td>
 <td align="left">RSUDMAINSUBSTANCEATTREATMENT</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Maintenance access restrictions</td>
 <td align="left">RSUDMAINTENANCEACCESSRESTRICTIONS</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Monitoring system</td>
 <td align="left">RSUDMONITORING</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Pharmacotherapy options</td>
 <td align="left">RSUDPHARMACOTHERAPYOPTION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Prevention programmes</td>
 <td align="left">RSUDPREVENTIONPROGRAMME</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Representatives</td>
 <td align="left">RSUDREP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sources of reporting</td>
 <td align="left">RSUDREPORTING</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Specific populations</td>
 <td align="left">RSUDSPECIFICPOPULATION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Substance dependence</td>
 <td align="left">RSUDSUBSTANCEDEPENDENCE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Treatment</td>
 <td align="left">RSUDTREATMENT</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Treatment location</td>
 <td align="left">RSUDTREATMENTLOCATION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">HIV / Hepatitis counselling and treatment</td>
 <td align="left">RSUD_HIVHEP_CT</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SDG indicators regional groupings</td>
 <td align="left">SDGREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Seat Type</td>
 <td align="left">SEATTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sex</td>
 <td align="left">SEX</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SUBSTANCE_ABUSE_SOCIAL_COST_TYPES</td>
 <td align="left">SOCIALCOSTTYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SOCIOECONOMIC_TYPES</td>
 <td align="left">SOCIOECONOMIC</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_SPECIAL_POPULATIONS</td>
 <td align="left">SPECIALPOPULATION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sponsorship originator</td>
 <td align="left">SPONSORSHIPORIGINATOR</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_STANDARDS_OF_CARE</td>
 <td align="left">STANDARDOFCARE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sub Region</td>
 <td align="left">SUBREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RSUD_SUBSTANCE_TYPES</td>
 <td align="left">SUBSTANCETYPE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RSUD_SUBSTANCE_TYPE_DISORDERS</td>
 <td align="left">SUBSTANCETYPEDISORDER</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Sunbed access restrictions</td>
 <td align="left">SUNBED_ACCESS</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Restriction and inspection of sunbed facilities</td>
 <td align="left">SUNBED_CONTROL</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Sunbed public information requirements</td>
 <td align="left">SUNBED_INFO</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sunbed facility safety requirements</td>
 <td align="left">SUNBED_SAFETY</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Sunbed facility staff training requirements</td>
 <td align="left">SUNBED_TRAINING</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Survey</td>
 <td align="left">SURVEY</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">UN MDG Region</td>
 <td align="left">UNMDGREGION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">UN Region</td>
 <td align="left">UNREGION</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">UN SDG Region</td>
 <td align="left">UNSDGREGION</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Vehicle standards</td>
 <td align="left">VEHICLESTANDARD</td>
+</tr>
+<tr class="odd">
+<td align="left">Wealth decile</td>
+<td align="left">WEALTHDECILE</td>
 </tr>
 <tr class="even">
 <td align="left">Wealth Quintile</td>

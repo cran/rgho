@@ -1,28 +1,91 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2020-04-04" />
+<meta name="date" content="2020-11-30" />
 
 <title>Introduction</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -32,14 +95,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -48,9 +113,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,9 +182,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -288,7 +350,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -302,7 +365,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date">2020-04-04</h4>
+<h4 class="date">2020-11-30</h4>
 
 
 <div id="TOC">
@@ -317,7 +380,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </ul>
 </div>
 
-<p><code>rgho</code> is an <code>R</code> package to access <a href="http://www.who.int/gho/en/">WHO GHO data</a> from R via the Athena web service, an API providing a simple query interface to the World Health Organization’s data and statistics content.</p>
+<p><code>rgho</code> is an <code>R</code> package to access <a href="https://www.who.int/data/gho/">WHO GHO data</a> from R via the Athena web service, an API providing a simple query interface to the World Health Organization’s data and statistics content.</p>
 <div id="the-global-health-observatory" class="section level2">
 <h2>The Global Health Observatory</h2>
 <p>As stated by the WHO website: <em>The GHO data repository contains an extensive list of indicators, which can be selected by theme or through a multi-dimension query functionality. It is the World Health Organization’s main health statistics repository</em>.</p>
@@ -326,8 +389,12 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h2>Data structure</h2>
 <p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;b-dimensions&quot;, &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;c-codes-gho&quot;, &quot;rgho&quot;)</code>).</p>
 <p>It is possible to access dimensions with <code>get_gho_dimensions()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">get_gho_dimensions</span>()</a></code></pre></div>
-<pre><code>## A 'GHO' object of 143 elements.
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">get_gho_dimensions</span>()</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## A &#39;GHO&#39; object of 145 elements.
 ## 
 ##                                  Label                ID
 ## 1    SUBSTANCE_ABUSE_ADVERTISING_TYPES   ADVERTISINGTYPE
@@ -340,8 +407,14 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## 
 ## (Printing 6 first elements.)</code></pre>
 <p>And codes for a given dimension with <code>get_gho_codes()</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 247 elements.
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
+<pre><code>## A &#39;GHO&#39; object of 247 elements.
 ## 
 ##         Label  ID
 ## 1       Aruba ABW
@@ -378,16 +451,22 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## WORLD_BANK_INCOME_GROUP_CODE
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 3308 elements.
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3
+## New names:
+## * `` -&gt; ...3</code></pre>
+<pre><code>## A &#39;GHO&#39; object of 3432 elements.
 ## 
 ##                                                                            Label
 ## 1                                      Ambient air pollution attributable deaths
-## 2    Ambient air pollution attributable DALYs per 100'000 children under 5 years
+## 2    Ambient air pollution attributable DALYs per 100&#39;000 children under 5 years
 ## 3                                    Household air pollution attributable deaths
 ## 4          Household air pollution attributable deaths in children under 5 years
-## 5                 Household air pollution attributable deaths per 100'000 capita
-## 6 Household air pollution attributable deaths per 100'000 children under 5 years
+## 5                 Household air pollution attributable deaths per 100&#39;000 capita
+## 6 Household air pollution attributable deaths per 100&#39;000 children under 5 years
 ##       ID
 ## 1  AIR_1
 ## 2 AIR_10
@@ -412,8 +491,12 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="search" class="section level2">
 <h2>Search</h2>
 <p>The function <code>search_dimensions()</code> and <code>search_codes()</code> research a term in dimension or codes labels, respectively.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">search_dimensions</span>(<span class="st">&quot;region&quot;</span>)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 12 elements.
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">search_dimensions</span>(<span class="st">&quot;region&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## A &#39;GHO&#39; object of 12 elements.
 ## 
 ##                               Label               ID
 ## 1                Subnational region DHSMICSGEOREGION
@@ -425,8 +508,14 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">search_codes</span>(<span class="st">&quot;neonatal&quot;</span>, <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 7 elements.
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">search_codes</span>(<span class="st">&quot;neonatal&quot;</span>, <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
+<pre><code>## A &#39;GHO&#39; object of 7 elements.
 ## 
 ##                                                                                Label
 ## 1                                              Number of neonatal deaths (thousands)
@@ -455,24 +544,25 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## IMR_ID
 ## RENDERER_ID</code></pre>
 <p>It is also possible to search results from an existing object.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;REGION&quot;</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 7 elements.
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>result &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;REGION&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3
+## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 7 elements.
 ## 
-##                                                           Label
-## 1                    South East Asia region, stratum B (SEAR B)
-## 2                    South East Asia region, stratum D (SEAR D)
-## 3                                               South-East Asia
-## 4                                               South-East Asia
-## 5           High income countries of the South-East Asia Region
-## 6 Low-and-middle-income countries of the South-East Asia Region
-##                ID
-## 1 GBD_REG14_SEARB
-## 2 GBD_REG14_SEARD
-## 3   OECD_NON_SEAR
-## 4            SEAR
-## 5     WHO_HI_SEAR
-## 6    WHO_LMI_SEAR
+##                                                           Label              ID
+## 1                    South East Asia region, stratum B (SEAR B) GBD_REG14_SEARB
+## 2                    South East Asia region, stratum D (SEAR D) GBD_REG14_SEARD
+## 3                                               South-East Asia   OECD_NON_SEAR
+## 4                                               South-East Asia            SEAR
+## 5           High income countries of the South-East Asia Region     WHO_HI_SEAR
+## 6 Low-and-middle-income countries of the South-East Asia Region    WHO_LMI_SEAR
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
@@ -480,13 +570,18 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="filtering-results" class="section level2">
 <h2>Filtering results</h2>
 <p>Dimension codes can be filtered according to their attributes.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">filter_gho</span>(</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  results,</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">  WHO_REGION_CODE <span class="op">==</span><span class="st"> &quot;EUR&quot;</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">)</a></code></pre></div>
-<pre><code>## A 'GHO' object of 53 elements.
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>results &lt;-<span class="st"> </span><span class="kw">get_gho_codes</span>(<span class="dt">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">filter_gho</span>(</span>
+<span id="cb25-2"><a href="#cb25-2"></a>  results,</span>
+<span id="cb25-3"><a href="#cb25-3"></a>  WHO_REGION_CODE <span class="op">==</span><span class="st"> &quot;EUR&quot;</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 53 elements.
 ## 
 ##        Label  ID
 ## 1    Albania ALB
@@ -524,9 +619,9 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
 ## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
 <p>Attribute names and values can be displayed.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">display_attributes</span>(</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  results</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">display_attributes</span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>  results</span>
+<span id="cb27-3"><a href="#cb27-3"></a>)</span></code></pre></div>
 <pre><code>##  [1] &quot;code&quot;                                      
 ##  [2] &quot;DS&quot;                                        
 ##  [3] &quot;FIPS&quot;                                      
@@ -550,91 +645,118 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## [21] &quot;WORLD_BANK_INCOME_GROUP_CODE&quot;              
 ## [22] &quot;WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR&quot;
 ## [23] &quot;WORLD_BANK_INCOME_GROUP_RELEASE_DATE&quot;</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">display_attribute_values</span>(</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">  results,</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">  <span class="st">&quot;WHO_REGION_CODE&quot;</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">display_attribute_values</span>(</span>
+<span id="cb29-2"><a href="#cb29-2"></a>  results,</span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="st">&quot;WHO_REGION_CODE&quot;</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>)</span></code></pre></div>
 <pre><code>## [1] &quot;AFR&quot;  &quot;AMR&quot;  &quot;EMR&quot;  &quot;EUR&quot;  &quot;SEAR&quot; &quot;WPR&quot;</code></pre>
 </div>
 <div id="data-download" class="section level2">
 <h2>Data download</h2>
 <p>An indicator can be downloaded as a <code>data_frame</code> with <code>get_gho_data()</code>. Here we use <code>MDG_0000000001</code>, <em>Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)</em>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">get_gho_data</span>(</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="dt">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">)</a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="kw">print</span>(result, <span class="dt">width =</span> <span class="ot">Inf</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 33,066 x 11
-##    GHO            PUBLISHSTATE  YEAR REGION COUNTRY SEX   `Display Value`
-##    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
-##  1 MDG_0000000001 PUBLISHED     2018 EMR    AFG     FMLE             44.5
-##  2 MDG_0000000001 PUBLISHED     2017 EMR    AFG     BTSX             49.5
-##  3 MDG_0000000001 PUBLISHED     2015 EMR    AFG     FMLE             49.6
-##  4 MDG_0000000001 PUBLISHED     2014 EMR    AFG     BTSX             55.1
-##  5 MDG_0000000001 PUBLISHED     2012 EMR    AFG     FMLE             55.8
-##  6 MDG_0000000001 PUBLISHED     2011 EMR    AFG     BTSX             61.9
-##  7 MDG_0000000001 PUBLISHED     2010 EMR    AFG     MLE              68  
-##  8 MDG_0000000001 PUBLISHED     2009 EMR    AFG     FMLE             62.7
-##  9 MDG_0000000001 PUBLISHED     2007 EMR    AFG     MLE              76.1
-## 10 MDG_0000000001 PUBLISHED     2006 EMR    AFG     FMLE             70.3
-##    Numeric Low   High  Comments
-##      &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;   
-##  1    44.5 NA    NA    NA      
-##  2    49.5 NA    NA    NA      
-##  3    49.6 NA    NA    NA      
-##  4    55.1 NA    NA    NA      
-##  5    55.8 NA    NA    NA      
-##  6    61.9 NA    NA    NA      
-##  7    68.0 NA    NA    NA      
-##  8    62.7 NA    NA    NA      
-##  9    76.1 NA    NA    NA      
-## 10    70.3 NA    NA    NA      
-## # … with 33,056 more rows</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>result &lt;-<span class="st"> </span><span class="kw">get_gho_data</span>(</span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="dt">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3
+## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
+<pre><code>## Warning: 942 parsing failures.
+##   row      col           expected                                                                                                                                                                                                                                           actual         file
+## 13205 Comments 1/0/T/F/TRUE/FALSE The most recent national official estimates of neonatal, infant and under-five mortality rates in India are from the India Sample Registration System with a rate of 23, 32 and 36 deaths per 1,000 live births, respectively, in the year 2018. literal data
+## 13206 Comments 1/0/T/F/TRUE/FALSE The most recent national official estimates of neonatal, infant and under-five mortality rates in India are from the India Sample Registration System with a rate of 23, 32 and 36 deaths per 1,000 live births, respectively, in the year 2018. literal data
+## 13207 Comments 1/0/T/F/TRUE/FALSE The most recent national official estimates of neonatal, infant and under-five mortality rates in India are from the India Sample Registration System with a rate of 23, 32 and 36 deaths per 1,000 live births, respectively, in the year 2018. literal data
+## 13208 Comments 1/0/T/F/TRUE/FALSE The most recent national official estimates of neonatal, infant and under-five mortality rates in India are from the India Sample Registration System with a rate of 23, 32 and 36 deaths per 1,000 live births, respectively, in the year 2018. literal data
+## 13209 Comments 1/0/T/F/TRUE/FALSE The most recent national official estimates of neonatal, infant and under-five mortality rates in India are from the India Sample Registration System with a rate of 23, 32 and 36 deaths per 1,000 live births, respectively, in the year 2018. literal data
+## ..... ........ .................. ................................................................................................................................................................................................................................................ ............
+## See problems(...) for more details.</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">print</span>(result, <span class="dt">width =</span> <span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 34,331 x 13
+##    GHO            PUBLISHSTATE  YEAR REGION UNREGION WORLDBANKINCOMEGROUP
+##    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;lgl&gt;    &lt;lgl&gt;               
+##  1 MDG_0000000001 PUBLISHED     1965 EMR    NA       NA                  
+##  2 MDG_0000000001 PUBLISHED     1967 EMR    NA       NA                  
+##  3 MDG_0000000001 PUBLISHED     1969 EMR    NA       NA                  
+##  4 MDG_0000000001 PUBLISHED     1974 EMR    NA       NA                  
+##  5 MDG_0000000001 PUBLISHED     1976 EMR    NA       NA                  
+##  6 MDG_0000000001 PUBLISHED     1983 EMR    NA       NA                  
+##  7 MDG_0000000001 PUBLISHED     1985 EMR    NA       NA                  
+##  8 MDG_0000000001 PUBLISHED     1992 EMR    NA       NA                  
+##  9 MDG_0000000001 PUBLISHED     1994 EMR    NA       NA                  
+## 10 MDG_0000000001 PUBLISHED     1999 EMR    NA       NA                  
+##    COUNTRY SEX   `Display Value` Numeric   Low  High Comments
+##    &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
+##  1 AFG     BTSX            220.    220.  193.  252.  NA      
+##  2 AFG     BTSX            212.    212.  187.  243.  NA      
+##  3 AFG     BTSX            205.    205.  181.  234.  NA      
+##  4 AFG     BTSX            186.    185.  164.  213.  NA      
+##  5 AFG     BTSX            178.    178.  158.  203.  NA      
+##  6 AFG     BTSX            148.    148.  134.  167.  NA      
+##  7 AFG     BTSX            140.    140.  128.  156.  NA      
+##  8 AFG     BTSX            113.    113.  105.  122.  NA      
+##  9 AFG     BTSX            107.    107.   99.3 115.  NA      
+## 10 AFG     BTSX             92.7    92.7  86.7  99.5 NA      
+## # … with 34,321 more rows</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
 <h2>Filter requests</h2>
 <p>The <code>filter</code> argument in <code>get_gho_data()</code> allows request filtering:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">get_gho_data</span>(</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">  <span class="dt">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span>,</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">  <span class="dt">filter =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">    <span class="dt">REGION =</span> <span class="st">&quot;EUR&quot;</span>,</a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">    <span class="dt">YEAR =</span> <span class="st">&quot;2015&quot;</span></a>
-<a class="sourceLine" id="cb21-7" data-line-number="7">  )</a>
-<a class="sourceLine" id="cb21-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb21-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="kw">print</span>(result, <span class="dt">width =</span> <span class="ot">Inf</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 162 x 11
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>result &lt;-<span class="st"> </span><span class="kw">get_gho_data</span>(</span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="dt">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="dt">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span>,</span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="dt">filter =</span> <span class="kw">list</span>(</span>
+<span id="cb37-5"><a href="#cb37-5"></a>    <span class="dt">REGION =</span> <span class="st">&quot;EUR&quot;</span>,</span>
+<span id="cb37-6"><a href="#cb37-6"></a>    <span class="dt">YEAR =</span> <span class="st">&quot;2015&quot;</span></span>
+<span id="cb37-7"><a href="#cb37-7"></a>  )</span>
+<span id="cb37-8"><a href="#cb37-8"></a>)</span></code></pre></div>
+<pre><code>## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3
+## New names:
+## * `` -&gt; ...1
+## * `` -&gt; ...2
+## * `` -&gt; ...3</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...3</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">print</span>(result, <span class="dt">width =</span> <span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 159 x 11
 ##    GHO            PUBLISHSTATE  YEAR REGION COUNTRY SEX   `Display Value`
 ##    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
 ##  1 MDG_0000000001 PUBLISHED     2015 EUR    ALB     BTSX              8.5
-##  2 MDG_0000000001 PUBLISHED     2015 EUR    ALB     FMLE              7.8
-##  3 MDG_0000000001 PUBLISHED     2015 EUR    ALB     MLE               9.2
-##  4 MDG_0000000001 PUBLISHED     2015 EUR    AND     BTSX              3.1
-##  5 MDG_0000000001 PUBLISHED     2015 EUR    AND     FMLE              2.8
-##  6 MDG_0000000001 PUBLISHED     2015 EUR    AND     MLE               3.3
+##  2 MDG_0000000001 PUBLISHED     2015 EUR    ALB     FMLE              7.6
+##  3 MDG_0000000001 PUBLISHED     2015 EUR    ALB     MLE               9.4
+##  4 MDG_0000000001 PUBLISHED     2015 EUR    AND     BTSX              3.3
+##  5 MDG_0000000001 PUBLISHED     2015 EUR    AND     FMLE              3  
+##  6 MDG_0000000001 PUBLISHED     2015 EUR    AND     MLE               3.6
 ##  7 MDG_0000000001 PUBLISHED     2015 EUR    ARM     BTSX             12.8
-##  8 MDG_0000000001 PUBLISHED     2015 EUR    ARM     FMLE             11.3
+##  8 MDG_0000000001 PUBLISHED     2015 EUR    ARM     FMLE             11.4
 ##  9 MDG_0000000001 PUBLISHED     2015 EUR    ARM     MLE              14.2
 ## 10 MDG_0000000001 PUBLISHED     2015 EUR    AUT     BTSX              3  
-##    Numeric Low   High  Comments
-##      &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;   
-##  1    8.54 NA    NA    NA      
-##  2    7.83 NA    NA    NA      
-##  3    9.20 NA    NA    NA      
-##  4    3.09 NA    NA    NA      
-##  5    2.81 NA    NA    NA      
-##  6    3.35 NA    NA    NA      
-##  7   12.8  NA    NA    NA      
-##  8   11.3  NA    NA    NA      
-##  9   14.2  NA    NA    NA      
-## 10    3.05 NA    NA    NA      
-## # … with 152 more rows</code></pre>
+##    Numeric   Low  High Comments
+##      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
+##  1    8.51  8.21  8.84 NA      
+##  2    7.56  7.23  7.93 NA      
+##  3    9.41  9.01  9.84 NA      
+##  4    3.34  1.17 10.0  NA      
+##  5    3.01  1.04  9.03 NA      
+##  6    3.64  1.28 11.0  NA      
+##  7   12.8  10.2  15.6  NA      
+##  8   11.4   9.06 13.9  NA      
+##  9   14.2  11.3  17.3  NA      
+## 10    3.05  2.92  3.18 NA      
+## # … with 149 more rows</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
 <h2>Other parameters</h2>
-<p>Other parameters than <code>format</code> can be specified to <code>get_gho_data()</code> (such as <code>apikey</code>, <code>asof</code>…). Parameters are listed on <a href="http://apps.who.int/gho/data/node.resources.api">this page</a>. Note that most parameters are not available to general users.</p>
+<p>Other parameters than <code>format</code> can be specified to <code>get_gho_data()</code> (such as <code>apikey</code>, <code>asof</code>…). Parameters are listed on <a href="https://apps.who.int/gho/data/node.resources.api">this page</a>. Note that most parameters are not available to general users.</p>
 <p>For details about how the requests are performed and the option availables (especially proxy settings) see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
 </div>
 

@@ -1,4 +1,8 @@
-# rgho 2.0
+# rgho 2.0.1
+  * fix errors caused by dplyr 0.8
+  * fails gracefully on connection error 
+
+# rgho 2.0.0
 
   * Changed repository
 

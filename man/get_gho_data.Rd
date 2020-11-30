@@ -29,10 +29,11 @@ form \code{list(COUNTRY = "FRA", ...)}.
 
 Query parameters follow the specification described on
 the WHO website
-\url{http://apps.who.int/gho/data/node.resources.api}.
+\url{https://apps.who.int/gho/data/node.resources.api}.
 }
 \examples{
 
+\dontrun{
 result <- get_gho_data(
   dimension = "GHO",
   code = "MDG_0000000001"
@@ -49,5 +50,5 @@ result <- get_gho_data(
   )
 )
 print(result, width = Inf)
-
+}
 }
