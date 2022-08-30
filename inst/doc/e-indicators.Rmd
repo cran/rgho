@@ -1,16 +1,16 @@
 ---
-title: "Dimension Names"
+title: "GHO indicators"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Dimension Names}
+  %\VignetteIndexEntry{GHO indicators}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
 
-Available GHO dimensions:
+Available codes for the COUNTRY dimension:
 
 ```{r, echo=FALSE, include=FALSE}
 library(rgho)
@@ -18,5 +18,7 @@ library(knitr)
 ```
 
 ```{r, echo=FALSE}
-kable(get_gho_dimensions())
+kable(
+      get_gho_indicators()
+  )
 ```

@@ -4,49 +4,41 @@
 \alias{get_gho_data}
 \title{Returns GHO Data}
 \usage{
-get_gho_data(code, dimension = "GHO", filter = NULL, ...)
+get_gho_data(code, filter = NULL)
 }
 \arguments{
 \item{code}{A GHO code.}
 
-\item{dimension}{A GHO dimension.}
-
-\item{filter}{A named list of filtering parameters (see
-details).}
-
-\item{...}{Additional query parameters (see details).}
+\item{filter}{A named list of filtering parameters. Each parameter must be the
+correct type.}
 }
 \value{
-A \code{data_frame}.
+A \code{GHO} object
 }
 \description{
-Given a dimension and a code, returns the corresponding
-GHO data.
+Given a code, returns the corresponding GHO data.
 }
 \details{
 Filtering parameters are given as a named list of the
 form \code{list(COUNTRY = "FRA", ...)}.
 
-Query parameters follow the specification described on
-the WHO website
-\url{https://apps.who.int/gho/data/node.resources.api}.
+If you mispecify the filtering parameter, you will get a 400 Bad
+Request Error
 }
 \examples{
 
 \dontrun{
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001"
 )
 print(result, width = Inf)
 
 
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001",
   filter = list(
     REGION = "EUR",
-    YEAR = "2015"
+    YEAR = 2015
   )
 )
 print(result, width = Inf)

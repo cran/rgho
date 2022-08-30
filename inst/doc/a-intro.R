@@ -1,55 +1,37 @@
 ## ---- echo=FALSE, include=FALSE-----------------------------------------------
 library(rgho)
+library(dplyr)
 
 ## -----------------------------------------------------------------------------
 get_gho_dimensions()
 
 ## -----------------------------------------------------------------------------
-get_gho_codes(dimension = "COUNTRY")
-get_gho_codes(dimension = "GHO")
+get_gho_values(dimension = "COUNTRY")
+get_gho_values(dimension = "GHO")
 
 ## -----------------------------------------------------------------------------
 search_dimensions("region")
-search_codes("neonatal", dimension = "GHO")
+search_values("neonatal", dimension = "GHO")
 
 ## -----------------------------------------------------------------------------
-result <- get_gho_codes(dimension = "REGION")
+result <- get_gho_values(dimension = "REGION")
 search_gho(result, "asia")
 
 ## -----------------------------------------------------------------------------
-results <- get_gho_codes(dimension = "COUNTRY")
-
-filter_gho(
-  results,
-  WHO_REGION_CODE == "EUR"
-)
-
-## -----------------------------------------------------------------------------
-display_attributes(
-  results
-)
-display_attribute_values(
-  results,
-  "WHO_REGION_CODE"
-)
-
-## -----------------------------------------------------------------------------
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001"
 )
 
-print(result, width = Inf)
+print(result)
 
 ## -----------------------------------------------------------------------------
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001",
   filter = list(
     REGION = "EUR",
-    YEAR = "2015"
+    YEAR = 2015
   )
 )
 
-print(result, width = Inf)
+print(result)
 

@@ -3,7 +3,5 @@ library(rgho)
 library(knitr)
 
 ## ---- echo=FALSE--------------------------------------------------------------
-kable(
-      get_gho_values(dimension = "COUNTRY")
-  )
+kable(get_gho_values(dimension = "GHO"))
 

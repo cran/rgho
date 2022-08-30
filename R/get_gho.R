@@ -1,86 +1,82 @@
 #' GET a GHO URL
 #'
-#' Given a url, tries to find local proxy settings and GET
-#' the content of the GHO page.
-#'
-#' The function re-tries failed attempts using exponential
-#' backoff with jitter.
-#'
 #' @param url the url to retrieve, given as a character
 #'   string.
-#' @param verbose Verbose mode?
-#' @param retry Maximum number of \code{GET} re-trials.
 #'
-#' @return The result from \code{\link[httr]{GET}}.
+#' @return A `ODataQuery` object.
 #' @keywords internal
-get_gho_ <- function(url, verbose = options()$rgho.verbose,
-                     retry = options()$rgho.retry) {
-  proxy <- get_proxy()
+get_gho <- function(url = getOption("rgho.baseurl")) {
+  ODataQuery$new(url)
+}
 
-  if (verbose) {
-    message(sprintf("URL: %s", url))
+#' @rdname man-gho
+#' @export
+get_gho_dimensions <- function() {
+  resp <- get_gho()$path("Dimension")
+  build_gho(resp)
+}
 
-    if (is.null(proxy)) {
-      message("Trying request without proxy settings.")
-    } else {
-      message("Trying request with proxy settings.")
-    }
-  }
+#' @rdname man-gho
+#' @export
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function was deprecated in favor of get_gho_values
+#' @keywords internal
+#'
+get_gho_codes <- function(...){
+  lifecycle::deprecate_soft("3.0.0", "get_gho_codes()", "get_gho_values()")
+  get_gho_values(...)
+}
 
 
-  n <- 0
-  while(n <= retry){
-    if (verbose) message(sprintf("Try #%i.", n))
+#' @rdname man-gho
+#' @export
+get_gho_values <- function(dimension = "GHO") {
+  dims <- get_gho_dimensions()
+  return_if_message(dims)
+  stopifnot(
+    dimension %in% dims$Code
+  )
 
-    res <- gracefully_fail(url, config = c(
-      proxy, # NULL is no proxy
-      httr::user_agent("https://pierucci.org/rgho/")
-    ))
+  vals <- get_gho()$path(sprintf("DIMENSION/%s/DimensionValues", dimension))
 
-    # dont retry if proxy error
-    if (length(res)){
-      if (res$status_code == 407L | res$status_code == 200L) break
-    }
+  res <- build_gho(vals)
+  structure(res[c("Code", "Title")],
+            url = attr(res, "url"))
+}
 
-    if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
-    wait(n, verbose)
-    n <- n + 1
-  }
-  if (length(res) && res$status_code == 200L){
-    if (verbose) message("Success.")
-    res
+#' @rdname man-gho
+#' @export
+get_gho_indicators <- function(filter = NULL) {
+  resp <- get_gho()$path("Indicator")
+  table <- if (!is.null(filter)){
+    build_gho(resp$filter(list_to_filter(filter)))
   } else {
-    message(attr(res, "message"))
+    build_gho(resp)
   }
+  url <- attr(table, "url")
+  structure(table, class = c("gho", class(table)),
+            url = url)
 }
 
-#' @rdname get_gho_
-get_gho <- memoise::memoise(
-  get_gho_,
-  ~ memoise::timeout(options()$rgho.memotime)
-)
+#' Check and Build a gho Object
+#'
+#' @param x A ODataQuery object
+#'
+#' @return A \code{gho} object.
+#' @keywords internal
+#'
 
-is_error <- function(x) {
-  inherits(x, "try-error") || httr::http_error(x)
-}
-
-format_error <- function(x) {
-  if (inherits(x, "try-error")) {
-    x
-
-  } else if (httr::http_error(x)) {
-    httr::http_status(x)$message
-
-  } else {
-    "Unknown error during HTTP request."
-  }
-}
-
-wait <- function(n, verbose = FALSE) {
-  waiting_time <- stats::runif(1, 0, 2^n)
-  if (verbose) message(sprintf(
-    "Waiting %.1fs.",
-    waiting_time
+build_gho <- function(x){
+  w <- graceful_fail(x$url, config = c(
+    httr::user_agent("https://github.com/aphp/rgho/")
   ))
-  Sys.sleep(waiting_time)
+  return_if_message(w, display = TRUE, n = 2)
+  ret <- x$retrieve()
+  structure(ret$value,
+            class = c("gho", "data.frame"),
+            url = ret$`@odata.context`)
 }
+
+

@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2022-02-22" />
+<meta name="date" content="2022-08-30" />
 
 <title>Introduction</title>
 
@@ -25,6 +25,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -139,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="date">2022-02-22</h4>
+<h4 class="date">2022-08-30</h4>
 
 
 <div id="TOC">
@@ -147,397 +148,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#the-global-health-observatory">The Global Health Observatory</a></li>
 <li><a href="#data-structure">Data structure</a></li>
 <li><a href="#search">Search</a></li>
-<li><a href="#filtering-results">Filtering results</a></li>
 <li><a href="#data-download">Data download</a></li>
 <li><a href="#filter-requests">Filter requests</a></li>
 <li><a href="#other-parameters">Other parameters</a></li>
 </ul>
 </div>
 
-<p><code>rgho</code> is an <code>R</code> package to access <a href="https://www.who.int/data/gho/">WHO GHO data</a> from R via the Athena web service, an API providing a simple query interface to the World Health Organization’s data and statistics content.</p>
+<p><code>rgho</code> is an <code>R</code> package to access <a href="https://www.who.int/data/gho/">WHO GHO data</a> from R via the GHO OData API, providing a simple query interface to the World Health Organization’s data and statistics content.</p>
 <div id="the-global-health-observatory" class="section level2">
 <h2>The Global Health Observatory</h2>
 <p>As stated by the WHO website: <em>The GHO data repository contains an extensive list of indicators, which can be selected by theme or through a multi-dimension query functionality. It is the World Health Organization’s main health statistics repository</em>.</p>
 </div>
 <div id="data-structure" class="section level2">
 <h2>Data structure</h2>
-<p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;b-dimensions&quot;, &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;c-codes-gho&quot;, &quot;rgho&quot;)</code>).</p>
+<p>GHO data is composed of indicators structured in dimensions. The list of dimensions is available in <code>vignette(&quot;b-dimensions&quot;, &quot;rgho&quot;)</code>, the list of indicators for the <em>GHO</em> dimension (the main dimension) in <code>vignette(&quot;c-values-gho&quot;, &quot;rgho&quot;)</code>).</p>
 <p>It is possible to access dimensions with <code>get_gho_dimensions()</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_gho_dimensions</span>()</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## A &#39;GHO&#39; object of 150 elements.
+<pre><code>## A &#39;GHO&#39; object of 101 elements.
 ## 
-##                                  Label                ID
-## 1    SUBSTANCE_ABUSE_ADVERTISING_TYPES   ADVERTISINGTYPE
-## 2                            Age Group          AGEGROUP
-## 3                          Action area     ALCACTIONAREA
-## 4 SUBSTANCE_ABUSE_ALCOHOL_POLICY_YEARS ALCOHOLPOLICYYEAR
-## 5                       Beverage Types       ALCOHOLTYPE
-## 6                   AMR GLASS Category  AMRGLASSCATEGORY
+##                   Code                                    Title
+## 1      ADVERTISINGTYPE        SUBSTANCE_ABUSE_ADVERTISING_TYPES
+## 2             AGEGROUP                                Age Group
+## 3          ALCOHOLTYPE                           Beverage Types
+## 4     AMRGLASSCATEGORY                       AMR GLASS Category
+## 5              ARCHIVE                             Archive date
+## 6 ASSISTIVETECHBARRIER Barriers to accessing assistive products
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
-<p>And codes for a given dimension with <code>get_gho_codes()</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_gho_codes</span>(<span class="at">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## New names:
-## * `` -&gt; ...3</code></pre>
-<pre><code>## A &#39;GHO&#39; object of 249 elements.
+<p>And codes for a given dimension with <code>get_gho_values()</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_gho_values</span>(<span class="at">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 245 elements.
 ## 
-##         Label  ID
-## 1       Aruba ABW
-## 2 Afghanistan AFG
-## 3      Angola AGO
-## 4    Anguilla AIA
-## 5     Albania ALB
-## 6     Andorra AND
+##   Code       Title
+## 1  ABW       Aruba
+## 2  AFG Afghanistan
+## 3  AGO      Angola
+## 4  AIA    Anguilla
+## 5  ALB     Albania
+## 6  AND     Andorra
 ## ...
 ## 
-## (Printing 6 first elements.)
+## (Printing 6 first elements.)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_gho_values</span>(<span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 2264 elements.
 ## 
-## Attributes:
-## 
-## DS
-## FIPS
-## GEOMETRY
-## IOC
-## ISO
-## ISO2
-## ITU
-## LAND_AREA_KMSQ_2012
-## LANGUAGES_EN_2012
-## MARC
-## MORT
-## SHORTNAMEES
-## SHORTNAMEFR
-## WHO
-## WHOLEGALSTATUS
-## WHO_REGION
-## WHO_REGION_CODE
-## WMO
-## WORLD_BANK_INCOME_GROUP
-## WORLD_BANK_INCOME_GROUP_CODE
-## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
-## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_gho_codes</span>(<span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3
-## New names:
-## * `` -&gt; ...3</code></pre>
-<pre><code>## A &#39;GHO&#39; object of 2867 elements.
-## 
-##                                                                            Label
-## 1                                      Ambient air pollution attributable deaths
-## 2    Ambient air pollution attributable DALYs per 100&#39;000 children under 5 years
-## 3                                    Household air pollution attributable deaths
-## 4          Household air pollution attributable deaths in children under 5 years
-## 5                 Household air pollution attributable deaths per 100&#39;000 capita
-## 6 Household air pollution attributable deaths per 100&#39;000 children under 5 years
-##       ID
-## 1  AIR_1
-## 2 AIR_10
-## 3 AIR_11
-## 4 AIR_12
-## 5 AIR_13
-## 6 AIR_14
+##                      Code
+## 1  Adult_curr_cig_smoking
+## 2        Adult_curr_e-cig
+## 3    Adult_curr_smokeless
+## 4  Adult_curr_tob_smoking
+## 5      Adult_curr_tob_use
+## 6 Adult_daily_cig_smoking
+##                                                          Title
+## 1     Prevalence of current cigarette smoking among adults (%)
+## 2       Prevalence of current e-cigarette use among adults (%)
+## 3 Prevalence of current smokeless tobacco use among adults (%)
+## 4       Prevalence of current tobacco smoking among adults (%)
+## 5           Prevalence of current tobacco use among adults (%)
+## 6       Prevalence of daily cigarette smoking among adults (%)
 ## ...
 ## 
-## (Printing 6 first elements.)
-## 
-## Attributes:
-## 
-## CATEGORY
-## DEFINITION_XML
-## DISPLAY_ES
-## DISPLAY_FR
-## IMR_ID
-## RENDERER_ID</code></pre>
-<p>The number of printed items can be changed by the option <code>rgho.n</code>.</p>
+## (Printing 6 first elements.)</code></pre>
 </div>
 <div id="search" class="section level2">
 <h2>Search</h2>
-<p>The function <code>search_dimensions()</code> and <code>search_codes()</code> research a term in dimension or codes labels, respectively.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_dimensions</span>(<span class="st">&quot;region&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## A &#39;GHO&#39; object of 13 elements.
+<p>The function <code>search_dimensions()</code> and <code>search_values()</code> research a term in dimension or codes labels, respectively.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_dimensions</span>(<span class="st">&quot;region&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 8 elements.
 ## 
-##                               Label               ID
-## 1                Subnational region DHSMICSGEOREGION
-## 2                        GBD Region        GBDREGION
-## 3                            Region          MGHEREG
-## 4                       OECD Region       OECDREGION
-## 5                        WHO region           REGION
-## 6 SDG indicators regional groupings        SDGREGION
+##               Code                                                Title
+## 1 DHSMICSGEOREGION DHS/MICS subnational regions (Health equity monitor)
+## 2        GBDREGION                                           GBD Region
+## 3          MGHEREG                                               Region
+## 4           REGION                                           WHO region
+## 5         UNREGION                                            UN Region
+## 6      UNSDGREGION                                        UN SDG Region
 ## ...
 ## 
 ## (Printing 6 first elements.)</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_codes</span>(<span class="st">&quot;neonatal&quot;</span>, <span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## New names:
-## * `` -&gt; ...3</code></pre>
-<pre><code>## A &#39;GHO&#39; object of 6 elements.
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_values</span>(<span class="st">&quot;neonatal&quot;</span>, <span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 5 elements.
 ## 
-##                                                                                Label
-## 1                                           Number of neonatal deaths (0 to 27 days)
-## 2           Neonatal mortality rate (0 to 27 days) per 1000 live births) (SDG 3.2.2)
-## 3 Distribution of causes of death among children aged &lt;5 years (%) - Neonatal sepsis
-## 4                                        Neonatal tetanus - number of reported cases
-## 5                     Neonates protected at birth against neonatal tetanus (PAB) (%)
-## 6                              Neonatal mortality rate (deaths per 1000 live births)
-##              ID
+##            Code
 ## 1         CM_03
-## 2 WHOSIS_000003
-## 3      WHS2_515
+## 2           nmr
+## 3 WHOSIS_000003
 ## 4       WHS3_56
 ## 5      WHS4_128
-## 6           nmr
-## 
-## Attributes:
-## 
-## CATEGORY
-## DEFINITION_XML
-## DISPLAY_ES
-## DISPLAY_FR
-## IMR_ID
-## RENDERER_ID</code></pre>
+##                                                                      Title
+## 1                                 Number of neonatal deaths (0 to 27 days)
+## 2                    Neonatal mortality rate (deaths per 1000 live births)
+## 3 Neonatal mortality rate (0 to 27 days) per 1000 live births) (SDG 3.2.2)
+## 4                              Neonatal tetanus - number of reported cases
+## 5           Neonates protected at birth against neonatal tetanus (PAB) (%)</code></pre>
 <p>It is also possible to search results from an existing object.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_codes</span>(<span class="at">dimension =</span> <span class="st">&quot;REGION&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3
-## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</span></code></pre></div>
-<pre><code>## A &#39;GHO&#39; object of 7 elements.
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_values</span>(<span class="at">dimension =</span> <span class="st">&quot;REGION&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_gho</span>(result, <span class="st">&quot;asia&quot;</span>)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 5 elements.
 ## 
-##                                                           Label              ID
-## 1                    South East Asia region, stratum B (SEAR B) GBD_REG14_SEARB
-## 2                    South East Asia region, stratum D (SEAR D) GBD_REG14_SEARD
-## 3                                               South-East Asia   OECD_NON_SEAR
-## 4                                               South-East Asia            SEAR
-## 5           High income countries of the South-East Asia Region     WHO_HI_SEAR
-## 6 Low-and-middle-income countries of the South-East Asia Region    WHO_LMI_SEAR
-## ...
-## 
-## (Printing 6 first elements.)</code></pre>
-</div>
-<div id="filtering-results" class="section level2">
-<h2>Filtering results</h2>
-<p>Dimension codes can be filtered according to their attributes.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">get_gho_codes</span>(<span class="at">dimension =</span> <span class="st">&quot;COUNTRY&quot;</span>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## New names:
-## * `` -&gt; ...3</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter_gho</span>(</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  results,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  WHO_REGION_CODE <span class="sc">==</span> <span class="st">&quot;EUR&quot;</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## A &#39;GHO&#39; object of 53 elements.
-## 
-##        Label  ID
-## 1    Albania ALB
-## 2    Andorra AND
-## 3    Armenia ARM
-## 4    Austria AUT
-## 5 Azerbaijan AZE
-## 6    Belgium BEL
-## ...
-## 
-## (Printing 6 first elements.)
-## 
-## Attributes:
-## 
-## DS
-## FIPS
-## GEOMETRY
-## IOC
-## ISO
-## ISO2
-## ITU
-## LAND_AREA_KMSQ_2012
-## LANGUAGES_EN_2012
-## MARC
-## MORT
-## SHORTNAMEES
-## SHORTNAMEFR
-## WHO
-## WHOLEGALSTATUS
-## WHO_REGION
-## WHO_REGION_CODE
-## WMO
-## WORLD_BANK_INCOME_GROUP
-## WORLD_BANK_INCOME_GROUP_CODE
-## WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR
-## WORLD_BANK_INCOME_GROUP_RELEASE_DATE</code></pre>
-<p>Attribute names and values can be displayed.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display_attributes</span>(</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  results</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##  [1] &quot;code&quot;                                      
-##  [2] &quot;DS&quot;                                        
-##  [3] &quot;FIPS&quot;                                      
-##  [4] &quot;GEOMETRY&quot;                                  
-##  [5] &quot;IOC&quot;                                       
-##  [6] &quot;ISO&quot;                                       
-##  [7] &quot;ISO2&quot;                                      
-##  [8] &quot;ITU&quot;                                       
-##  [9] &quot;LAND_AREA_KMSQ_2012&quot;                       
-## [10] &quot;LANGUAGES_EN_2012&quot;                         
-## [11] &quot;MARC&quot;                                      
-## [12] &quot;MORT&quot;                                      
-## [13] &quot;SHORTNAMEES&quot;                               
-## [14] &quot;SHORTNAMEFR&quot;                               
-## [15] &quot;WHO&quot;                                       
-## [16] &quot;WHOLEGALSTATUS&quot;                            
-## [17] &quot;WHO_REGION&quot;                                
-## [18] &quot;WHO_REGION_CODE&quot;                           
-## [19] &quot;WMO&quot;                                       
-## [20] &quot;WORLD_BANK_INCOME_GROUP&quot;                   
-## [21] &quot;WORLD_BANK_INCOME_GROUP_CODE&quot;              
-## [22] &quot;WORLD_BANK_INCOME_GROUP_GNI_REFERENCE_YEAR&quot;
-## [23] &quot;WORLD_BANK_INCOME_GROUP_RELEASE_DATE&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display_attribute_values</span>(</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  results,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;WHO_REGION_CODE&quot;</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] &quot;AFR&quot;  &quot;AMR&quot;  &quot;EMR&quot;  &quot;EUR&quot;  &quot;SEAR&quot; &quot;WPR&quot;</code></pre>
+##              Code                                                         Title
+## 1 GBD_REG14_SEARB                    South East Asia region, stratum B (SEAR B)
+## 2 GBD_REG14_SEARD                    South East Asia region, stratum D (SEAR D)
+## 3   OECD_NON_SEAR                                    South-East Asia (non-OECD)
+## 4            SEAR                                               South-East Asia
+## 5    WHO_LMI_SEAR Low-and-middle-income countries of the South-East Asia Region</code></pre>
 </div>
 <div id="data-download" class="section level2">
 <h2>Data download</h2>
 <p>An indicator can be downloaded as a <code>data_frame</code> with <code>get_gho_data()</code>. Here we use <code>MDG_0000000001</code>, <em>Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)</em>:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_data</span>(</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3
-## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## New names:
-## * `` -&gt; ...3</code></pre>
-<pre><code>## Rows: 35933 Columns: 13</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (6): GHO, PUBLISHSTATE, REGION, COUNTRY, SEX, Display Value
-## dbl (4): YEAR, Numeric, Low, High
-## lgl (3): StdErr, StdDev, Comments</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 35,933 × 13
-##    GHO            PUBLISHSTATE  YEAR REGION COUNTRY SEX   `Display Value`    
-##    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;              
-##  1 MDG_0000000001 PUBLISHED     2013 AFR    &lt;NA&gt;    BTSX  58.78 [56.58-61.51]
-##  2 MDG_0000000001 PUBLISHED     2013 AFR    &lt;NA&gt;    MLE   64.26 [61.82-67.33]
-##  3 MDG_0000000001 PUBLISHED     2015 AFR    &lt;NA&gt;    FMLE  50.54 [48.23-53.76]
-##  4 MDG_0000000001 PUBLISHED     2016 AFR    &lt;NA&gt;    BTSX  54.69 [51.92-58.55]
-##  5 MDG_0000000001 PUBLISHED     2018 AFR    &lt;NA&gt;    FMLE  46.83 [43.92-51.27]
-##  6 MDG_0000000001 PUBLISHED     2019 AFR    &lt;NA&gt;    BTSX  50.72 [47.34-56.09]
-##  7 MDG_0000000001 PUBLISHED     1990 AMR    &lt;NA&gt;    FMLE  30.71 [29.85-31.65]
-##  8 MDG_0000000001 PUBLISHED     1991 AMR    &lt;NA&gt;    BTSX  32.94 [32.16-33.76]
-##  9 MDG_0000000001 PUBLISHED     1992 AMR    &lt;NA&gt;    MLE   34.74 [33.83-35.72]
-## 10 MDG_0000000001 PUBLISHED     1993 AMR    &lt;NA&gt;    FMLE  27.12 [26.37-27.93]
-##    Numeric   Low  High StdErr StdDev Comments
-##      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt;  &lt;lgl&gt;   
-##  1    58.8  56.6  61.5 NA     NA     NA      
-##  2    64.3  61.8  67.3 NA     NA     NA      
-##  3    50.5  48.2  53.8 NA     NA     NA      
-##  4    54.7  51.9  58.5 NA     NA     NA      
-##  5    46.8  43.9  51.3 NA     NA     NA      
-##  6    50.7  47.3  56.1 NA     NA     NA      
-##  7    30.7  29.8  31.7 NA     NA     NA      
-##  8    32.9  32.2  33.8 NA     NA     NA      
-##  9    34.7  33.8  35.7 NA     NA     NA      
-## 10    27.1  26.4  27.9 NA     NA     NA      
-## # … with 35,923 more rows</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_data</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 35933 elements.
+## 
+##         Id  IndicatorCode                  Value NumericValue       Low
+## 1 27816263 MDG_0000000001 105.51 [103.62-107.68]    105.51129 103.61955
+## 2 27816264 MDG_0000000001     97.2 [95.33-99.33]     97.19640  95.32996
+## 3 27816265 MDG_0000000001 113.41 [111.29-115.88]    113.41113 111.28832
+## 4 27816266 MDG_0000000001 104.72 [102.87-106.84]    104.71737 102.86652
+## 5 27816267 MDG_0000000001     96.4 [94.57-98.52]     96.39962  94.56988
+## 6 27816268 MDG_0000000001  112.62 [110.55-115.0]    112.62281 110.55119
+##        High                          Date TimeDimensionValue
+## 1 107.68372 2022-01-18T13:12:40.993+01:00               1990
+## 2  99.33017 2022-01-18T13:12:41.023+01:00               1990
+## 3 115.87599  2022-01-18T13:12:41.04+01:00               1990
+## 4 106.84179 2022-01-18T13:12:41.057+01:00               1991
+## 5  98.51799  2022-01-18T13:12:41.07+01:00               1991
+## 6 115.00073 2022-01-18T13:12:41.087+01:00               1991
+##          TimeDimensionBegin          TimeDimensionEnd REGION COUNTRY YEAR  SEX
+## 1 1990-01-01T00:00:00+01:00 1990-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1990 BTSX
+## 2 1990-01-01T00:00:00+01:00 1990-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1990 FMLE
+## 3 1990-01-01T00:00:00+01:00 1990-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1990  MLE
+## 4 1991-01-01T00:00:00+01:00 1991-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1991 BTSX
+## 5 1991-01-01T00:00:00+01:00 1991-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1991 FMLE
+## 6 1991-01-01T00:00:00+01:00 1991-12-31T00:00:00+01:00    AFR    &lt;NA&gt; 1991  MLE
+## ...
+## 
+## (Printing 6 first elements.)</code></pre>
 </div>
 <div id="filter-requests" class="section level2">
 <h2>Filter requests</h2>
 <p>The <code>filter</code> argument in <code>get_gho_data()</code> allows request filtering:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_data</span>(</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dimension =</span> <span class="st">&quot;GHO&quot;</span>,</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span>,</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">filter =</span> <span class="fu">list</span>(</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">REGION =</span> <span class="st">&quot;EUR&quot;</span>,</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="st">&quot;2015&quot;</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3
-## New names:
-## * `` -&gt; ...1
-## * `` -&gt; ...2
-## * `` -&gt; ...3</code></pre>
-<pre><code>## New names:
-## * `` -&gt; ...3</code></pre>
-<pre><code>## Rows: 162 Columns: 13</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (6): GHO, PUBLISHSTATE, REGION, COUNTRY, SEX, Display Value
-## dbl (4): YEAR, Numeric, Low, High
-## lgl (3): StdErr, StdDev, Comments</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 162 × 13
-##    GHO            PUBLISHSTATE  YEAR REGION COUNTRY SEX   `Display Value`    
-##    &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;              
-##  1 MDG_0000000001 PUBLISHED     2015 EUR    &lt;NA&gt;    BTSX  8.0 [7.76-8.28]    
-##  2 MDG_0000000001 PUBLISHED     2015 EUR    &lt;NA&gt;    FMLE  7.11 [6.89-7.37]   
-##  3 MDG_0000000001 PUBLISHED     2015 EUR    &lt;NA&gt;    MLE   8.85 [8.57-9.17]   
-##  4 MDG_0000000001 PUBLISHED     2015 EUR    ALB     BTSX  8.5 [8.19-8.83]    
-##  5 MDG_0000000001 PUBLISHED     2015 EUR    ALB     FMLE  7.57 [7.21-7.95]   
-##  6 MDG_0000000001 PUBLISHED     2015 EUR    ALB     MLE   9.39 [8.98-9.8]    
-##  7 MDG_0000000001 PUBLISHED     2015 EUR    AND     BTSX  3.11 [2.24-4.32]   
-##  8 MDG_0000000001 PUBLISHED     2015 EUR    AND     FMLE  2.77 [1.98-3.88]   
-##  9 MDG_0000000001 PUBLISHED     2015 EUR    AND     MLE   3.42 [2.45-4.78]   
-## 10 MDG_0000000001 PUBLISHED     2015 EUR    ARM     BTSX  12.59 [10.29-15.01]
-##    Numeric   Low  High StdErr StdDev Comments
-##      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt;  &lt;lgl&gt;   
-##  1    8.00  7.76  8.28 NA     NA     NA      
-##  2    7.11  6.89  7.37 NA     NA     NA      
-##  3    8.85  8.57  9.17 NA     NA     NA      
-##  4    8.50  8.19  8.83 NA     NA     NA      
-##  5    7.57  7.21  7.95 NA     NA     NA      
-##  6    9.39  8.98  9.80 NA     NA     NA      
-##  7    3.11  2.24  4.32 NA     NA     NA      
-##  8    2.77  1.98  3.88 NA     NA     NA      
-##  9    3.42  2.45  4.78 NA     NA     NA      
-## 10   12.6  10.3  15.0  NA     NA     NA      
-## # … with 152 more rows</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">get_gho_data</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">code =</span> <span class="st">&quot;MDG_0000000001&quot;</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filter =</span> <span class="fu">list</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">REGION =</span> <span class="st">&quot;EUR&quot;</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">YEAR =</span> <span class="dv">2015</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<pre><code>## A &#39;GHO&#39; object of 3 elements.
+## 
+##         Id  IndicatorCode            Value NumericValue     Low    High
+## 1 27816617 MDG_0000000001  8.0 [7.76-8.28]      8.00280 7.75596 8.27904
+## 2 27816618 MDG_0000000001 7.11 [6.89-7.37]      7.10611 6.88558 7.36740
+## 3 27816619 MDG_0000000001 8.85 [8.57-9.17]      8.85070 8.56613 9.17291
+##                            Date TimeDimensionValue        TimeDimensionBegin
+## 1 2022-01-18T13:12:46.503+01:00               2015 2015-01-01T00:00:00+01:00
+## 2  2022-01-18T13:12:46.52+01:00               2015 2015-01-01T00:00:00+01:00
+## 3 2022-01-18T13:12:46.537+01:00               2015 2015-01-01T00:00:00+01:00
+##            TimeDimensionEnd REGION YEAR  SEX
+## 1 2015-12-31T00:00:00+01:00    EUR 2015 BTSX
+## 2 2015-12-31T00:00:00+01:00    EUR 2015 FMLE
+## 3 2015-12-31T00:00:00+01:00    EUR 2015  MLE</code></pre>
 </div>
 <div id="other-parameters" class="section level2">
 <h2>Other parameters</h2>
-<p>Other parameters than <code>format</code> can be specified to <code>get_gho_data()</code> (such as <code>apikey</code>, <code>asof</code>…). Parameters are listed on <a href="https://apps.who.int/gho/data/node.resources.api">this page</a>. Note that most parameters are not available to general users.</p>
-<p>For details about how the requests are performed and the option availables (especially proxy settings) see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
+<p>For details about how the requests are performed and the options available (especially proxy settings) see <code>vignette(&quot;e-details&quot;, &quot;rgho&quot;)</code>.</p>
 </div>
 
 
