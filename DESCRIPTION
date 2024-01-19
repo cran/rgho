@@ -1,6 +1,6 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 3.0.1
+Version: 3.0.2
 Authors@R: c(
     person("Kevin", "Zarca", email = "kevin.zarca@gmail.com", role = c("aut", "cre")),
     person("Antoine", "Filipovic-Pierucci", role = "aut"),
@@ -24,10 +24,10 @@ RoxygenNote: 7.2.0
 BugReports: https://github.com/aphp/rgho/issues
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2023-08-09 08:36:32 UTC; kevin
+Packaged: 2024-01-19 07:37:57 UTC; kevin
 Author: Kevin Zarca [aut, cre],
   Antoine Filipovic-Pierucci [aut],
   Assistance Publique - Hôpitaux de Paris [cph]
 Maintainer: Kevin Zarca <kevin.zarca@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-08-09 12:10:02 UTC
+Date/Publication: 2024-01-19 08:00:02 UTC
